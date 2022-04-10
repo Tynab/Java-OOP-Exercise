@@ -2,8 +2,9 @@ package quan_ly_hoc_sinh;
 
 public class ThanhTichHocTap extends HocSinh {
     // #region Fields
-    private TheoKy ky1 = new TheoKy();
-    private TheoKy ky2 = new TheoKy();
+    private CacYeuToThanhTich ky1 = new CacYeuToThanhTich();
+    private CacYeuToThanhTich ky2 = new CacYeuToThanhTich();
+    private CacYeuToThanhTich caNam = new CacYeuToThanhTich();
     private String hanhKiem;
     private double trungBinh;
     private String xepLoai;
@@ -115,6 +116,8 @@ public class ThanhTichHocTap extends HocSinh {
                 break;
             }
         }
+        caNam.setHanhKiem(hanhKiem);
+        setCaNam(caNam);
     }
 
     public void TinhDiemTrungBinh() {
@@ -123,48 +126,34 @@ public class ThanhTichHocTap extends HocSinh {
         } catch (Exception e) {
             trungBinh = 0;
         }
+        caNam.setTrungBinh(trungBinh);
+        setCaNam(caNam);
     }
     // #endregion
 
     // #region Properties
-    public TheoKy getKy1() {
+    public CacYeuToThanhTich getKy1() {
         return ky1;
     }
 
-    public void setKy1(TheoKy ky1) {
+    public void setKy1(CacYeuToThanhTich ky1) {
         this.ky1 = ky1;
     }
 
-    public TheoKy getKy2() {
+    public CacYeuToThanhTich getKy2() {
         return ky2;
     }
 
-    public void setKy2(TheoKy ky2) {
+    public void setKy2(CacYeuToThanhTich ky2) {
         this.ky2 = ky2;
     }
 
-    public String getHanhKiem() {
-        return hanhKiem;
+    public CacYeuToThanhTich getCaNam() {
+        return caNam;
     }
 
-    // public void setHanhKiem(String hanhKiem) {
-    // this.hanhKiem = hanhKiem;
-    // }
-
-    public double getTrungBinh() {
-        return trungBinh;
+    public void setCaNam(CacYeuToThanhTich caNam) {
+        this.caNam = caNam;
     }
-
-    // public void setTrungBinh(double trungBinh) {
-    // this.trungBinh = trungBinh;
-    // }
-
-    public String getXepLoai() {
-        return xepLoai;
-    }
-
-    // public void setXepLoai(String xepLoai) {
-    // this.xepLoai = xepLoai;
-    // }
     // #endregion
 }

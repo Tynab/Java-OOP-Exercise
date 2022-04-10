@@ -1,9 +1,9 @@
 package quan_ly_hoc_sinh;
 
-public class TheoKy extends ThanhTichHocTap {
+public class CacYeuToThanhTich extends ThanhTichHocTap {
     // #region Fiedlds
     private String hanhKiem;
-    private double trungBinhCacMon;
+    private double trungBinh;
     private String xepLoai;
     // #endregion
 
@@ -16,12 +16,12 @@ public class TheoKy extends ThanhTichHocTap {
         this.hanhKiem = hanhKiem;
     }
 
-    public double getTrungBinhCacMon() {
-        return trungBinhCacMon;
+    public double getTrungBinh() {
+        return trungBinh;
     }
 
-    public void setTrungBinhCacMon(double trungBinhCacMon) {
-        this.trungBinhCacMon = trungBinhCacMon;
+    public void setTrungBinh(double trungBinh) {
+        this.trungBinh = trungBinh;
     }
 
     public String getXepLoai() {

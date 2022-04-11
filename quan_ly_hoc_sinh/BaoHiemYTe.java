@@ -1,12 +1,12 @@
 package quan_ly_hoc_sinh;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class BaoHiemYTe extends HocSinh {
     // #region Fields
     private String soPhieu;
     private Date ngayCap;
-    private String benhVien;
+    private String tenBVDK;
     private Date tuNgay;
     private Date denNgay;
     // #endregion
@@ -28,12 +28,12 @@ public class BaoHiemYTe extends HocSinh {
         this.ngayCap = ngayCap;
     }
 
-    public String getBenhVien() {
-        return benhVien;
+    public String getTenBVDK() {
+        return tenBVDK;
     }
 
-    public void setBenhVien(String benhVien) {
-        this.benhVien = benhVien;
+    public void setTenBVDK(String tenBVDK) {
+        this.tenBVDK = tenBVDK;
     }
 
     public Date getTuNgay() {

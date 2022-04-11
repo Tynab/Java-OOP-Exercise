@@ -1,51 +1,51 @@
 package quan_ly_hoc_sinh;
 
-public class TheoKy extends ThanhTichHocTap {
+public class TheoKy extends HocSinh {
     // #region Fiedlds
-    private DiemTungMon monToan = new DiemTungMon();
-    private DiemTungMon monLy = new DiemTungMon();
-    private DiemTungMon monHoa = new DiemTungMon();
-    private DiemTungMon monSinh = new DiemTungMon();
-    private DiemTungMon monVan = new DiemTungMon();
-    private DiemTungMon monAnh = new DiemTungMon();
-    private DiemTungMon monSu = new DiemTungMon();
-    private DiemTungMon monDia = new DiemTungMon();
-    private DiemTungMon monTin = new DiemTungMon();
-    private DiemTungMon monCongNghe = new DiemTungMon();
-    private DiemTungMon monGDCD = new DiemTungMon();
-    private DiemTungMon monTheDuc = new DiemTungMon();
-    private DiemTungMon monQuocPhong = new DiemTungMon();
-    private DiemTungMon monNgheThuat = new DiemTungMon();
-    private DiemTungMon monTuChon = new DiemTungMon();
+    private DiemTungMon monToan;
+    private DiemTungMon monLy;
+    private DiemTungMon monHoa;
+    private DiemTungMon monSinh;
+    private DiemTungMon monVan;
+    private DiemTungMon monAnh;
+    private DiemTungMon monSu;
+    private DiemTungMon monDia;
+    private DiemTungMon monTin;
+    private DiemTungMon monCongNghe;
+    private DiemTungMon monGDCD;
+    private DiemTungMon monTheDuc;
+    private DiemTungMon monQuocPhong;
+    private DiemTungMon monNgheThuat;
+    private DiemTungMon monTuChon;
     private String hanhKiem;
-    private double diemTrungBinhCacMon;
+    private double diemTrungBinhTCCM;
     private String xepLoai;
     // #endregion
 
     // #region Methods
-    public void TinhDiemTrungBinhCacMon() {
+    public void TinhDiemTrungBinhTCCM() {
         try {
-            diemTrungBinhCacMon = (monToan.getDiemTrungBinh() * 2 + monLy.getDiemTrungBinh() + monHoa.getDiemTrungBinh()
-                    + monSinh.getDiemTrungBinh() + monVan.getDiemTrungBinh() * 2 + monAnh.getDiemTrungBinh()
-                    + monSu.getDiemTrungBinh() + monDia.getDiemTrungBinh() + monTin.getDiemTrungBinh()
-                    + monCongNghe.getDiemTrungBinh() + monGDCD.getDiemTrungBinh() + monTheDuc.getDiemTrungBinh()
-                    + monQuocPhong.getDiemTrungBinh() + monNgheThuat.getDiemTrungBinh() + monTuChon.getDiemTrungBinh())
-                    / 17;
+            diemTrungBinhTCCM = (double) (monToan.getDiemTrungBinhMon() * 2 + monLy.getDiemTrungBinhMon()
+                    + monHoa.getDiemTrungBinhMon() + monSinh.getDiemTrungBinhMon() + monVan.getDiemTrungBinhMon() * 2
+                    + monAnh.getDiemTrungBinhMon() + monSu.getDiemTrungBinhMon() + monDia.getDiemTrungBinhMon()
+                    + monTin.getDiemTrungBinhMon() + monCongNghe.getDiemTrungBinhMon() + monGDCD.getDiemTrungBinhMon()
+                    + monTheDuc.getDiemTrungBinhMon() + monQuocPhong.getDiemTrungBinhMon()
+                    + monNgheThuat.getDiemTrungBinhMon() + monTuChon.getDiemTrungBinhMon()) / 17;
         } catch (Exception e) {
-            diemTrungBinhCacMon = 0;
+            diemTrungBinhTCCM = 0;
         }
     }
 
     public void XepLoaiHocLuc() {
-        if (diemTrungBinhCacMon >= 9) {
+        if (diemTrungBinhTCCM >= 9) {
             xepLoai = "Xuất Sắc";
-        } else if (diemTrungBinhCacMon >= 8) {
+        } else if (diemTrungBinhTCCM >= 8) {
             xepLoai = "Giỏi";
-        } else if (diemTrungBinhCacMon >= 7) {
+        } else if (diemTrungBinhTCCM >= 7) {
             xepLoai = "Khá";
-        } else if (diemTrungBinhCacMon >= 5) {
+        } else if (diemTrungBinhTCCM >= 5) {
             xepLoai = "Trung Bình";
-        } else if (diemTrungBinhCacMon >= 3) {
+        } else if (diemTrungBinhTCCM >= 3) {
             xepLoai = "Yếu";
         } else {
             xepLoai = "Kém";
@@ -182,12 +182,12 @@ public class TheoKy extends ThanhTichHocTap {
         this.hanhKiem = hanhKiem;
     }
 
-    public double getDiemTrungBinhCacMon() {
-        return diemTrungBinhCacMon;
+    public double getDiemTrungBinhTCCM() {
+        return diemTrungBinhTCCM;
     }
 
-    // public void setDiemTrungBinhCacMon(double diemTrungBinhCacMon) {
-    // this.diemTrungBinhCacMon = diemTrungBinhCacMon;
+    // public void setDiemTrungBinhTCCM(double diemTrungBinhTCCM) {
+    // this.diemTrungBinhTCCM = diemTrungBinhTCCM;
     // }
 
     public String getXepLoai() {

@@ -1,6 +1,6 @@
 package quan_ly_hoc_sinh;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class ThongTinCaNhan extends HocSinh {
     // #region Fields
@@ -13,7 +13,7 @@ public class ThongTinCaNhan extends HocSinh {
     private String danToc;
     private String tonGiao;
     private String soDienThoai;
-    private String soDienThoaiNguoiThan;
+    private String lienHeKhanCap;
     private String thuDienTu;
     // #endregion
 
@@ -38,8 +38,8 @@ public class ThongTinCaNhan extends HocSinh {
         return ngaySinh;
     }
 
-    public void setNgaySinh(Date ngaySinh) {
-        this.ngaySinh = ngaySinh;
+    public void setNgaySinh(java.util.Date date) {
+        this.ngaySinh = date;
     }
 
     public String getNoiSinh() {
@@ -90,12 +90,12 @@ public class ThongTinCaNhan extends HocSinh {
         this.soDienThoai = soDienThoai;
     }
 
-    public String getSoDienThoaiNguoiThan() {
-        return soDienThoaiNguoiThan;
+    public String getLienHeKhanCap() {
+        return lienHeKhanCap;
     }
 
-    public void setSoDienThoaiNguoiThan(String soDienThoaiNguoiThan) {
-        this.soDienThoaiNguoiThan = soDienThoaiNguoiThan;
+    public void setLienHeKhanCap(String lienHeKhanCap) {
+        this.lienHeKhanCap = lienHeKhanCap;
     }
 
     public String getThuDienTu() {

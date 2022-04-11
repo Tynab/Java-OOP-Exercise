@@ -1,59 +1,59 @@
 package quan_ly_hoc_sinh;
 
-public class DiemTungMon extends TheoKy {
+public class DiemTungMon {
     // #region Fiedls
-    private double diemKiemTraMieng;
-    private double diemKiemTra15Phut;
-    private double diemKiemTraGiuaKy;
-    private double diemKiemTraCuoiKy;
-    private double diemTrungBinh;
+    private double diemKTMieng;
+    private double diemKT15Phut;
+    private double diemKTGiuaKy;
+    private double diemKTCuoiKy;
+    private double diemTrungBinhMon;
     // #endregion
 
     // #region Methods
     public void TinhDiemTrungBinh() {
-        diemTrungBinh = (diemKiemTraMieng + diemKiemTra15Phut + diemKiemTraGiuaKy * 2 + diemKiemTraCuoiKy * 3) / 7;
+        diemTrungBinhMon = (diemKTMieng + diemKT15Phut + diemKTGiuaKy * 2 + diemKTCuoiKy * 3) / 7;
     }
     // #endregion
 
     // #region Properties
-    public double getDiemKiemTraMieng() {
-        return diemKiemTraMieng;
+    public double getDiemKTMieng() {
+        return diemKTMieng;
     }
 
-    public void setDiemKiemTraMieng(double diemKiemTraMieng) {
-        this.diemKiemTraMieng = diemKiemTraMieng;
+    public void setDiemKTMieng(double diemKTMieng) {
+        this.diemKTMieng = diemKTMieng;
     }
 
-    public double getDiemKiemTra15Phut() {
-        return diemKiemTra15Phut;
+    public double getDiemKT15Phut() {
+        return diemKT15Phut;
     }
 
-    public void setDiemKiemTra15Phut(double diemKiemTra15Phut) {
-        this.diemKiemTra15Phut = diemKiemTra15Phut;
+    public void setDiemKT15Phut(double diemKT15Phut) {
+        this.diemKT15Phut = diemKT15Phut;
     }
 
-    public double getDiemKiemTraGiuaKy() {
-        return diemKiemTraGiuaKy;
+    public double getDiemKTGiuaKy() {
+        return diemKTGiuaKy;
     }
 
-    public void setDiemKiemTraGiuaKy(double diemKiemTraGiuaKy) {
-        this.diemKiemTraGiuaKy = diemKiemTraGiuaKy;
+    public void setDiemKTGiuaKy(double diemKTGiuaKy) {
+        this.diemKTGiuaKy = diemKTGiuaKy;
     }
 
-    public double getDiemKiemTraCuoiKy() {
-        return diemKiemTraCuoiKy;
+    public double getDiemKTCuoiKy() {
+        return diemKTCuoiKy;
     }
 
-    public void setDiemKiemTraCuoiKy(double diemKiemTraCuoiKy) {
-        this.diemKiemTraCuoiKy = diemKiemTraCuoiKy;
+    public void setDiemKTCuoiKy(double diemKTCuoiKy) {
+        this.diemKTCuoiKy = diemKTCuoiKy;
     }
 
-    public double getDiemTrungBinh() {
-        return diemTrungBinh;
+    public double getDiemTrungBinhMon() {
+        return diemTrungBinhMon;
     }
 
-    // public void setDiemTrungBinh(double diemTrungBinh) {
-    //     this.diemTrungBinh = diemTrungBinh;
+    // public void setDiemTrungBinhMon(double diemTrungBinhMon) {
+    // this.diemTrungBinhMon = diemTrungBinhMon;
     // }
     // #endregion
 }

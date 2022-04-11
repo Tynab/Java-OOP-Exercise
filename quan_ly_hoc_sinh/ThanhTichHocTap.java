@@ -2,38 +2,38 @@ package quan_ly_hoc_sinh;
 
 public class ThanhTichHocTap extends HocSinh {
     // #region Fields
-    private TheoKy ky1 = new TheoKy();
-    private TheoKy ky2 = new TheoKy();
-    private String hanhKiem;
-    private double diemTrungBinh;
-    private String xepLoai;
+    private TheoKy hocKy1;
+    private TheoKy hocKy2;
+    private String hanhKiemCN;
+    private double diemTrungBinhCN;
+    private String xepLoaiCN;
     // #endregion
 
     // #region Methods
-    public void XetHanhKiemCuoiNam() {
-        var hk1 = ky1.getHanhKiem();
-        var hk2 = ky2.getHanhKiem();
+    public void XetHanhKiemCN() {
+        var hk1 = hocKy1.getHanhKiem();
+        var hk2 = hocKy2.getHanhKiem();
         switch (hk1) {
             case "Tốt": {
                 switch (hk2) {
                     case "Tốt": {
-                        hanhKiem = "Tốt";
+                        hanhKiemCN = "Tốt";
                         break;
                     }
                     case "Khá": {
-                        hanhKiem = "Khá"; // kỳ 2 quyết định cả năm
+                        hanhKiemCN = "Khá"; // kỳ 2 quyết định cả năm
                         break;
                     }
                     case "Trung Bình": {
-                        hanhKiem = "Khá";
+                        hanhKiemCN = "Khá";
                         break;
                     }
                     case "Yếu": {
-                        hanhKiem = "Trung Bình";
+                        hanhKiemCN = "Trung Bình";
                         break;
                     }
                     default: {
-                        hanhKiem = null;
+                        hanhKiemCN = null;
                         break;
                     }
                 }
@@ -41,23 +41,23 @@ public class ThanhTichHocTap extends HocSinh {
             case "Khá": {
                 switch (hk2) {
                     case "Tốt": {
-                        hanhKiem = "Tốt"; // kỳ 2 quyết định cả năm
+                        hanhKiemCN = "Tốt"; // kỳ 2 quyết định cả năm
                         break;
                     }
                     case "Khá": {
-                        hanhKiem = "Khá";
+                        hanhKiemCN = "Khá";
                         break;
                     }
                     case "Trung Bình": {
-                        hanhKiem = "Trung Bình"; // kỳ 2 quyết định cả năm
+                        hanhKiemCN = "Trung Bình"; // kỳ 2 quyết định cả năm
                         break;
                     }
                     case "Yếu": {
-                        hanhKiem = "Trung Bình";
+                        hanhKiemCN = "Trung Bình";
                         break;
                     }
                     default: {
-                        hanhKiem = null;
+                        hanhKiemCN = null;
                         break;
                     }
                 }
@@ -65,23 +65,23 @@ public class ThanhTichHocTap extends HocSinh {
             case "Trung Bình": {
                 switch (hk2) {
                     case "Tốt": {
-                        hanhKiem = "Khá";
+                        hanhKiemCN = "Khá";
                         break;
                     }
                     case "Khá": {
-                        hanhKiem = "Khá"; // kỳ 2 quyết định cả năm
+                        hanhKiemCN = "Khá"; // kỳ 2 quyết định cả năm
                         break;
                     }
                     case "Trung Bình": {
-                        hanhKiem = "Trung Bình";
+                        hanhKiemCN = "Trung Bình";
                         break;
                     }
                     case "Yếu": {
-                        hanhKiem = "Yếu"; // kỳ 2 quyết định cả năm
+                        hanhKiemCN = "Yếu"; // kỳ 2 quyết định cả năm
                         break;
                     }
                     default: {
-                        hanhKiem = null;
+                        hanhKiemCN = null;
                         break;
                     }
                 }
@@ -89,98 +89,98 @@ public class ThanhTichHocTap extends HocSinh {
             case "Yếu": {
                 switch (hk2) {
                     case "Tốt": {
-                        hanhKiem = "Khá";
+                        hanhKiemCN = "Khá";
                         break;
                     }
                     case "Khá": {
-                        hanhKiem = "Trung Bình";
+                        hanhKiemCN = "Trung Bình";
                         break;
                     }
                     case "Trung Bình": {
-                        hanhKiem = "Trung Bình"; // kỳ 2 quyết định cả năm
+                        hanhKiemCN = "Trung Bình"; // kỳ 2 quyết định cả năm
                         break;
                     }
                     case "Yếu": {
-                        hanhKiem = "Yếu";
+                        hanhKiemCN = "Yếu";
                         break;
                     }
                     default: {
-                        hanhKiem = null;
+                        hanhKiemCN = null;
                         break;
                     }
                 }
             }
             default: {
-                hanhKiem = null;
+                hanhKiemCN = null;
                 break;
             }
         }
     }
 
-    public void TinhDiemTrungBinhCuoiNam() {
+    public void TinhDiemTrungBinhCN() {
         try {
-            diemTrungBinh = (ky1.getDiemTrungBinhCacMon() + ky2.getDiemTrungBinhCacMon() * 2) / 3;
+            diemTrungBinhCN = (double) (hocKy1.getDiemTrungBinhTCCM() + hocKy2.getDiemTrungBinhTCCM() * 2) / 3;
         } catch (Exception e) {
-            diemTrungBinh = 0;
+            diemTrungBinhCN = 0;
         }
     }
 
-    public void XepLoaiHocLucCuoiNam() {
-        if (diemTrungBinh >= 9) {
-            xepLoai = "Xuất Sắc";
-        } else if (diemTrungBinh >= 8) {
-            xepLoai = "Giỏi";
-        } else if (diemTrungBinh >= 7) {
-            xepLoai = "Khá";
-        } else if (diemTrungBinh >= 5) {
-            xepLoai = "Trung Bình";
-        } else if (diemTrungBinh >= 3) {
-            xepLoai = "Yếu";
+    public void XepLoaiHocLucCN() {
+        if (diemTrungBinhCN >= 9) {
+            xepLoaiCN = "Xuất Sắc";
+        } else if (diemTrungBinhCN >= 8) {
+            xepLoaiCN = "Giỏi";
+        } else if (diemTrungBinhCN >= 7) {
+            xepLoaiCN = "Khá";
+        } else if (diemTrungBinhCN >= 5) {
+            xepLoaiCN = "Trung Bình";
+        } else if (diemTrungBinhCN >= 3) {
+            xepLoaiCN = "Yếu";
         } else {
-            xepLoai = "Kém";
+            xepLoaiCN = "Kém";
         }
     }
     // #endregion
 
     // #region Properties
-    public TheoKy getKy1() {
-        return ky1;
+    public TheoKy getHocKy1() {
+        return hocKy1;
     }
 
-    public void setKy1(TheoKy ky1) {
-        this.ky1 = ky1;
+    public void setHocKy1(TheoKy hocKy1) {
+        this.hocKy1 = hocKy1;
     }
 
-    public TheoKy getKy2() {
-        return ky2;
+    public TheoKy getHocKy2() {
+        return hocKy2;
     }
 
-    public void setKy2(TheoKy ky2) {
-        this.ky2 = ky2;
+    public void setHocKy2(TheoKy hocKy2) {
+        this.hocKy2 = hocKy2;
     }
 
-    public String getHanhKiem() {
-        return hanhKiem;
+    public String getHanhKiemCN() {
+        return hanhKiemCN;
     }
 
-    // public void setHanhKiem(String hanhKiem) {
-    // this.hanhKiem = hanhKiem;
+    // public void setHanhKiemCN(String hanhKiemCN) {
+    // this.hanhKiemCN = hanhKiemCN;
     // }
 
-    public double getDiemTrungBinh() {
-        return diemTrungBinh;
+    public double getDiemTrungBinhCN() {
+        return diemTrungBinhCN;
     }
 
-    // public void setDiemTrungBinh(double diemTrungBinh) {
-    // this.diemTrungBinh = diemTrungBinh;
+    // public void setDiemTrungBinhCN(double diemTrungBinhCN) {
+    // this.diemTrungBinhCN = diemTrungBinhCN;
     // }
 
-    public String getXepLoai() {
-        return xepLoai;
+    public String getXepLoaiCN() {
+        return xepLoaiCN;
     }
 
-    // public void setXepLoai(String xepLoai) {
-    // this.xepLoai = xepLoai;
+    // public void setXepLoaiCN(String xepLoaiCN) {
+    // this.xepLoaiCN = xepLoaiCN;
     // }
     // #endregion
 }

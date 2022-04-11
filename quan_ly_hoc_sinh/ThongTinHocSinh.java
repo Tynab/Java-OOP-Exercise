@@ -6,7 +6,7 @@ public class ThongTinHocSinh extends HocSinh {
     private String ban;
     private String khoi;
     private String lop;
-    private String thamGia;
+    private String thamGiaToChuc;
     // #endregion
 
     // #region Properties
@@ -42,12 +42,12 @@ public class ThongTinHocSinh extends HocSinh {
         this.lop = lop;
     }
 
-    public String getThamGia() {
-        return thamGia;
+    public String getThamGiaToChuc() {
+        return thamGiaToChuc;
     }
 
-    public void setThamGia(String thamGia) {
-        this.thamGia = thamGia;
+    public void setThamGiaToChuc(String thamGiaToChuc) {
+        this.thamGiaToChuc = thamGiaToChuc;
     }
     // #endregion
 }

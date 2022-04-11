@@ -2,16 +2,15 @@ package quan_ly_hoc_sinh;
 
 public class ThanhTichHocTap extends HocSinh {
     // #region Fields
-    private CacYeuToThanhTich ky1 = new CacYeuToThanhTich();
-    private CacYeuToThanhTich ky2 = new CacYeuToThanhTich();
-    private CacYeuToThanhTich caNam = new CacYeuToThanhTich();
+    private TheoKy ky1 = new TheoKy();
+    private TheoKy ky2 = new TheoKy();
     private String hanhKiem;
-    private double trungBinh;
+    private double diemTrungBinh;
     private String xepLoai;
     // #endregion
 
     // #region Methods
-    public void XetHanhKiem() {
+    public void XetHanhKiemCuoiNam() {
         var hk1 = ky1.getHanhKiem();
         var hk2 = ky2.getHanhKiem();
         switch (hk1) {
@@ -116,44 +115,72 @@ public class ThanhTichHocTap extends HocSinh {
                 break;
             }
         }
-        caNam.setHanhKiem(hanhKiem);
-        setCaNam(caNam);
     }
 
-    public void TinhDiemTrungBinh() {
+    public void TinhDiemTrungBinhCuoiNam() {
         try {
-            trungBinh = (ky1.getTrungBinh() + ky2.getTrungBinh()) / 2;
+            diemTrungBinh = (ky1.getDiemTrungBinhCacMon() + ky2.getDiemTrungBinhCacMon() * 2) / 3;
         } catch (Exception e) {
-            trungBinh = 0;
+            diemTrungBinh = 0;
         }
-        caNam.setTrungBinh(trungBinh);
-        setCaNam(caNam);
+    }
+
+    public void XepLoaiHocLucCuoiNam() {
+        if (diemTrungBinh >= 9) {
+            xepLoai = "Xuất Sắc";
+        } else if (diemTrungBinh >= 8) {
+            xepLoai = "Giỏi";
+        } else if (diemTrungBinh >= 7) {
+            xepLoai = "Khá";
+        } else if (diemTrungBinh >= 5) {
+            xepLoai = "Trung Bình";
+        } else if (diemTrungBinh >= 3) {
+            xepLoai = "Yếu";
+        } else {
+            xepLoai = "Kém";
+        }
     }
     // #endregion
 
     // #region Properties
-    public CacYeuToThanhTich getKy1() {
+    public TheoKy getKy1() {
         return ky1;
     }
 
-    public void setKy1(CacYeuToThanhTich ky1) {
+    public void setKy1(TheoKy ky1) {
         this.ky1 = ky1;
     }
 
-    public CacYeuToThanhTich getKy2() {
+    public TheoKy getKy2() {
         return ky2;
     }
 
-    public void setKy2(CacYeuToThanhTich ky2) {
+    public void setKy2(TheoKy ky2) {
         this.ky2 = ky2;
     }
 
-    public CacYeuToThanhTich getCaNam() {
-        return caNam;
+    public String getHanhKiem() {
+        return hanhKiem;
     }
 
-    public void setCaNam(CacYeuToThanhTich caNam) {
-        this.caNam = caNam;
+    // public void setHanhKiem(String hanhKiem) {
+    // this.hanhKiem = hanhKiem;
+    // }
+
+    public double getDiemTrungBinh() {
+        return diemTrungBinh;
     }
+
+    // public void setDiemTrungBinh(double diemTrungBinh) {
+    // this.diemTrungBinh = diemTrungBinh;
+    // }
+
+    public String getXepLoai() {
+        return xepLoai;
+    }
+
+    // public void setXepLoai(String xepLoai) {
+    // this.xepLoai = xepLoai;
+    // }
     // #endregion
 }

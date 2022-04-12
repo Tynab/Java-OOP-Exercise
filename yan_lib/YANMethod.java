@@ -180,6 +180,11 @@ public class YANMethod {
         return date;
     }
 
+    // Date to string dd/mm/yyyy
+    public static String DateToString(Date date) {
+        return new SimpleDateFormat("dd/MM/yyyy").format(date);
+    }
+
     // Print advanced
     public static void PrintAdv(String s) {
         for (var i = 1; i <= (WIDTH - s.length()) / 2; i++) {

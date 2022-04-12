@@ -1,6 +1,10 @@
 package quan_ly_hoc_sinh;
 
-public class TheoKy extends HocSinh {
+import static java.lang.String.*;
+import static yan_lib.YANConstant.*;
+import static yan_lib.YANMethod.*;
+
+public class TheoKy {
     // #region Fiedlds
     private DiemTungMon monToan;
     private DiemTungMon monLy;
@@ -20,17 +24,52 @@ public class TheoKy extends HocSinh {
     private String hanhKiem;
     private double diemTrungBinhTCCM;
     private String xepLoai;
+    private final DiemTungMon[] _diemTungMons = {
+            monToan,
+            monLy,
+            monHoa,
+            monSinh,
+            monVan,
+            monAnh,
+            monSu,
+            monDia,
+            monTin,
+            monCongNghe,
+            monGDCD,
+            monTheDuc,
+            monQuocPhong,
+            monNgheThuat,
+            monTuChon
+    };
+    private final String[] _monHocs = {
+            "Toán",
+            "Lý",
+            "Hóa",
+            "Sinh",
+            "Văn",
+            "Anh",
+            "Sử",
+            "Địa",
+            "Tin",
+            "Công nghệ",
+            "Giáo Dục Công Dân",
+            "Thế Dục",
+            "Quốc Phòng",
+            "Nghệ Thuật",
+            "Tự Chọn"
+    };
     // #endregion
 
     // #region Methods
     public void TinhDiemTrungBinhTCCM() {
         try {
-            diemTrungBinhTCCM = (monToan.getDiemTrungBinhMon() * 2 + monLy.getDiemTrungBinhMon()
-                    + monHoa.getDiemTrungBinhMon() + monSinh.getDiemTrungBinhMon() + monVan.getDiemTrungBinhMon() * 2
-                    + monAnh.getDiemTrungBinhMon() + monSu.getDiemTrungBinhMon() + monDia.getDiemTrungBinhMon()
-                    + monTin.getDiemTrungBinhMon() + monCongNghe.getDiemTrungBinhMon() + monGDCD.getDiemTrungBinhMon()
-                    + monTheDuc.getDiemTrungBinhMon() + monQuocPhong.getDiemTrungBinhMon()
-                    + monNgheThuat.getDiemTrungBinhMon() + monTuChon.getDiemTrungBinhMon()) / 17;
+            for (int i = 0; i < _diemTungMons.length; i++) {
+                var dtbMon = _monHocs[i].equals("Toán") || _monHocs[i].equals("Văn")
+                        ? _diemTungMons[i].getDiemTrungBinhMon() * 2
+                        : _diemTungMons[i].getDiemTrungBinhMon();
+                diemTrungBinhTCCM += dtbMon;
+            }
+            diemTrungBinhTCCM /= (_diemTungMons.length + 2);
         } catch (Exception e) {
             diemTrungBinhTCCM = 0;
         }
@@ -50,6 +89,73 @@ public class TheoKy extends HocSinh {
         } else {
             xepLoai = "Kém";
         }
+    }
+
+    public void NhapHanhKiem(int hocKy) {
+        PrintlnAdv(RESET, format("Hạnh kiểm học kỳ %d", hocKy));
+        PrintlnAdv("1. Tốt       ");
+        PrintlnAdv("2. Khá       ");
+        PrintlnAdv("3. Trung Bình");
+        PrintlnAdv("4. Yếu       ");
+        PrintAdv("Chọn 1 trong các phương án trên: ");
+        switch (NumLimit(1, 4)) {
+            case 1: {
+                hanhKiem = "Tốt";
+                break;
+            }
+            case 2: {
+                hanhKiem = "Khá";
+                break;
+            }
+            case 3: {
+                hanhKiem = "Trung Bình";
+                break;
+            }
+            case 4: {
+                hanhKiem = "Yếu";
+                break;
+            }
+        }
+    }
+
+    public void NhapDiemCacMon(int hocKy) {
+        for (int i = 0; i < _diemTungMons.length; i++) {
+            _diemTungMons[i] = new DiemTungMon();
+            _diemTungMons[i].NhapDiemTungMon(_monHocs[i], hocKy);
+        }
+    }
+
+    public void NhapTheoKy(int hocKy) {
+        NhapHanhKiem(hocKy);
+        NhapDiemCacMon(hocKy);
+        TinhDiemTrungBinhTCCM();
+        XepLoaiHocLuc();
+    }
+
+    public void XuatDiemCacMon(int hocKy) {
+        for (int i = 0; i < _diemTungMons.length; i++) {
+            PrintlnAdv(format("Điểm trung bình môn %s kỳ %d: %.1f", _monHocs[i], hocKy,
+                    _diemTungMons[i].getDiemTrungBinhMon()));
+        }
+    }
+
+    public void XuatHanhKiem(int hocKy) {
+        PrintlnAdv(format("Hạnh kiểm kỳ %d: %s", hocKy, hanhKiem));
+    }
+
+    public void XuatXepLoai(int hocKy) {
+        PrintlnAdv(format("Xếp loại học lực kỳ %d: %s", hocKy, xepLoai));
+    }
+
+    public void XuatDiemTrungBinhTCCM(int hocKy) {
+        PrintlnAdv(format("Điểm trung bình các môn kỳ %d: %.1f", hocKy, diemTrungBinhTCCM));
+    }
+
+    public void XuatTheoKy(int hocKy) {
+        XuatDiemCacMon(hocKy);
+        XuatHanhKiem(hocKy);
+        XuatDiemTrungBinhTCCM(hocKy);
+        XuatXepLoai(hocKy);
     }
     // #endregion
 

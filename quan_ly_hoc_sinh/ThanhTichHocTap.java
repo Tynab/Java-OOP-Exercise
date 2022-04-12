@@ -1,5 +1,8 @@
 package quan_ly_hoc_sinh;
 
+import static java.lang.String.*;
+import static yan_lib.YANMethod.*;
+
 public class ThanhTichHocTap extends HocSinh {
     // #region Fields
     private TheoKy hocKy1;
@@ -143,6 +146,56 @@ public class ThanhTichHocTap extends HocSinh {
         } else {
             xepLoaiCN = "Kém";
         }
+    }
+
+    public void NhapHocKy1() {
+        hocKy1 = new TheoKy();
+        hocKy1.NhapTheoKy(1);
+    }
+
+    public void NhapHocKy2() {
+        hocKy2 = new TheoKy();
+        hocKy2.NhapTheoKy(2);
+    }
+
+    public void NhapThanhTichHocTap() {
+        NhapHocKy1();
+        NhapHocKy2();
+        XetHanhKiemCN();
+        TinhDiemTrungBinhCN();
+        XepLoaiHocLucCN();
+    }
+
+    public void XuatHocKy1() {
+        hocKy1.XuatTheoKy(1);
+    }
+
+    public void XuatHocKy2() {
+        hocKy2.XuatTheoKy(2);
+    }
+
+    public void XuatHanhKiemCN() {
+        PrintlnAdv(format("Hạnh kiểm cả năm: %s", hanhKiemCN));
+    }
+
+    public void XuatDiemTrungBinhCN() {
+        PrintlnAdv(format("Điểm trung bình cả năm: %.1f", diemTrungBinhCN));
+    }
+
+    public void XuatXepLoaiHocLucCN() {
+        PrintlnAdv(format("Xếp loại học lực cả năm: %s", xepLoaiCN));
+    }
+
+    public void XuatCN() {
+        XuatHanhKiemCN();
+        XuatDiemTrungBinhCN();
+        XuatXepLoaiHocLucCN();
+    }
+
+    public void XuatThanhTichHocTap() {
+        XuatHocKy1();
+        XuatHocKy2();
+        XuatCN();
     }
     // #endregion
 

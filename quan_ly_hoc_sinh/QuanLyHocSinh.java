@@ -33,23 +33,21 @@ public class QuanLyHocSinh {
             PrintlnAdv(CYAN, format("Học sinh thứ %d", i + 1));
             var hocSinh = new HocSinh();
             do {
-                hocSinh.NhapMaHocSinh();
+                hocSinh.nhapMaHocSinh();
             } while (IsRegist(hocSinh.getMaHocSinh()));
-            hocSinh.NhapThongTinCaNhan();
-            hocSinh.NhapThongTinCoBan();
-            hocSinh.NhapThanhTichHocTap();
+            hocSinh.nhapThongTinCaNhan();
+            hocSinh.nhapThongTinCoBan();
+            hocSinh.nhapThanhTichHocTap();
             _dsHocSinh.add(hocSinh);
         }
         // output
         out.println(YELLOW);
-        for (var hocSinh : _dsHocSinh) {
-            Showntime(hocSinh);
-        }
+        Showntime();
         // ctrl
         CheckOut();
     }
 
-    // Kiểm tra mã học sinh đã đăng ký
+    // Check regist
     private static boolean IsRegist(String maHocSinh) {
         var is_success = false;
         for (var hocSinh : _dsHocSinh) {
@@ -63,10 +61,12 @@ public class QuanLyHocSinh {
     }
 
     // Showntime
-    private static void Showntime(HocSinh hocSinh) {
-        PrintlnAdv(format("%s", ToUpperCaseAdv(hocSinh.getThongTinCaNhan().getHoTen())));
-        hocSinh.XuatThanhTichHocTap();
-        out.println();
+    private static void Showntime() {
+        for (var hocSinh : _dsHocSinh) {
+            PrintlnAdv(format("%s", ToUpperCaseAdv(hocSinh.getThongTinCaNhan().getHoTen())));
+            hocSinh.xuatThanhTichHocTap();
+            out.println();
+        }
     }
 
     // Check out

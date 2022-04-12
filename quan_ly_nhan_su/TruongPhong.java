@@ -1,8 +1,6 @@
 package quan_ly_nhan_su;
 
-import static java.lang.Integer.*;
 import static java.lang.String.*;
-import static yan_lib.YANConstant.*;
 import static yan_lib.YANMethod.*;
 
 public class TruongPhong extends NhanSu {
@@ -17,34 +15,23 @@ public class TruongPhong extends NhanSu {
         luongThang = soNgayLamViec * _luongNgay + 100 * soThanhVien;
     }
 
-    public void NhapSoThanhVien() {
-        PrintAdv(GREEN, "Số thành viên: ", RESET);
-        soThanhVien = NumLimit(0, MAX_VALUE);
-    }
-
-    @Override
-    public void NhapNhanSu() {
-        super.NhapNhanSu();
-        NhapSoThanhVien();
-    }
-
-    public void XuatSoThanhVien() {
+    public void xuatSoThanhVien() {
         PrintlnAdv(format("Số thành viên: %s", soThanhVien));
     }
 
-    public void XuatLuongThang() {
+    public void xuatLuongThang() {
         PrintlnAdv(format("Lương tháng: %s", WritePerfectDub(luongThang)));
     }
 
     @Override
-    public void XuatNhanSu() {
-        super.XuatMaNhanVien();
-        super.XuatHoTen();
-        super.XuatSoDienThoai();
+    public void xuatNhanSu() {
+        super.xuatMaNhanVien();
+        super.xuatHoTen();
+        super.xuatSoDienThoai();
         PrintlnAdv("Vị trí: trưởng phòng");
-        XuatSoThanhVien();
-        super.XuatSoNgayLamViec();
-        XuatLuongThang();
+        xuatSoThanhVien();
+        super.xuatSoNgayLamViec();
+        xuatLuongThang();
     }
     // #endregion
 

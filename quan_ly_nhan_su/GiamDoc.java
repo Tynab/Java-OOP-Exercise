@@ -17,34 +17,35 @@ public class GiamDoc extends NhanSu {
         luongThang = soNgayLamViec * _luongNgay;
     }
 
-    public void NhapCoPhan() {
+    public void nhapCoPhan() {
         PrintAdv(GREEN, "Cổ phần: ", RESET);
         coPhan = NumLimit(0, MAX_VALUE);
     }
 
     @Override
-    public void NhapNhanSu() {
-        super.NhapNhanSu();
-        NhapCoPhan();
+    public void nhapNhanSu() {
+        super.nhapNhanSu();
+        nhapCoPhan();
+        tinhLuong();
     }
 
-    public void XuatCoPhan() {
+    public void xuatCoPhan() {
         PrintlnAdv(format("Cổ phần: %s", coPhan));
     }
 
-    public void XuatLuongThang() {
+    public void xuatLuongThang() {
         PrintlnAdv(format("Lương tháng: %s", WritePerfectDub(luongThang)));
     }
 
     @Override
-    public void XuatNhanSu() {
-        super.XuatMaNhanVien();
-        super.XuatHoTen();
-        super.XuatSoDienThoai();
+    public void xuatNhanSu() {
+        super.xuatMaNhanVien();
+        super.xuatHoTen();
+        super.xuatSoDienThoai();
         PrintlnAdv("Vị trí: giám đốc");
-        XuatCoPhan();
-        super.XuatSoNgayLamViec();
-        XuatLuongThang();
+        xuatCoPhan();
+        super.xuatSoNgayLamViec();
+        xuatLuongThang();
     }
     // #endregion
 

@@ -17,54 +17,54 @@ public class HocSinh {
     // #endregion
 
     // #region Methods
-    public void NhapMaHocSinh() {
+    public void nhapMaHocSinh() {
         PrintAdv(GREEN, "Mã học sinh: ", RESET);
         maHocSinh = _scan.nextLine();
     }
 
-    public void NhapThongTinCaNhan() {
+    public void nhapThongTinCaNhan() {
         thongTinCaNhan = new ThongTinCaNhan();
-        thongTinCaNhan.NhapThongTinCaNhan();
+        thongTinCaNhan.nhapThongTinCaNhan();
     }
 
-    public void NhapThongTinCoBan() {
+    public void nhapThongTinCoBan() {
         thongTinCoBan = new ThongTinCoBan();
-        thongTinCoBan.NhapThongTinCoBan();
+        thongTinCoBan.nhapThongTinCoBan();
     }
 
-    public void NhapThanhTichHocTap() {
+    public void nhapThanhTichHocTap() {
         thanhTichHocTap = new ThanhTichHocTap();
-        thanhTichHocTap.NhapThanhTichHocTap();
+        thanhTichHocTap.nhapThanhTichHocTap();
     }
 
-    public void NhapHocSinh() {
-        NhapMaHocSinh();
-        NhapThongTinCaNhan();
-        NhapThongTinCoBan();
-        NhapThanhTichHocTap();
+    public void nhapHocSinh() {
+        nhapMaHocSinh();
+        nhapThongTinCaNhan();
+        nhapThongTinCoBan();
+        nhapThanhTichHocTap();
     }
 
-    public void XuatMaHocSinh() {
+    public void xuatMaHocSinh() {
         PrintlnAdv(format("Mã học sinh: %s", maHocSinh));
     }
 
-    public void XuatThongTinCaNhan() {
-        thongTinCaNhan.XuatThongTinCaNhan();
+    public void xuatThongTinCaNhan() {
+        thongTinCaNhan.xuatThongTinCaNhan();
     }
 
-    public void XuatThongTinCoBan() {
-        thongTinCoBan.XuatThongTinCoBan();
+    public void xuatThongTinCoBan() {
+        thongTinCoBan.xuatThongTinCoBan();
     }
 
-    public void XuatThanhTichHocTap() {
-        thanhTichHocTap.XuatThanhTichHocTap();
+    public void xuatThanhTichHocTap() {
+        thanhTichHocTap.xuatThanhTichHocTap();
     }
 
-    public void XuatHocSinh() {
-        XuatMaHocSinh();
-        XuatThongTinCaNhan();
-        XuatThongTinCoBan();
-        XuatThanhTichHocTap();
+    public void xuatHocSinh() {
+        xuatMaHocSinh();
+        xuatThongTinCaNhan();
+        xuatThongTinCoBan();
+        xuatThanhTichHocTap();
     }
     // #endregion
 

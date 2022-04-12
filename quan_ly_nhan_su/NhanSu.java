@@ -22,54 +22,53 @@ public class NhanSu {
         luongThang = 0;
     }
 
-    public void NhapMaNhanVien() {
+    public void nhapMaNhanVien() {
         PrintAdv(GREEN, "Mã nhân viên: ", RESET);
         maNhanVien = _scan.nextLine();
     }
 
-    public void NhapHoTen() {
+    public void nhapHoTen() {
         PrintAdv(GREEN, "Họ tên: ", RESET);
         hoTen = _scan.nextLine();
     }
 
-    public void NhapSoDienThoai() {
+    public void nhapSoDienThoai() {
         PrintAdv(GREEN, "Số điện thoại: ", RESET);
         soDienThoai = _scan.nextLine();
     }
 
-    public void NhapSoNgayLamViec() {
+    public void nhapSoNgayLamViec() {
         PrintAdv(GREEN, "Số ngày làm việc: ", RESET);
         soNgayLamViec = NumLimit(0d, 31d);
     }
 
-    public void NhapNhanSu() {
-        NhapMaNhanVien();
-        NhapHoTen();
-        NhapSoDienThoai();
-        NhapSoNgayLamViec();
+    public void nhapNhanSu() {
+        nhapHoTen();
+        nhapSoDienThoai();
+        nhapSoNgayLamViec();
     }
 
-    public void XuatMaNhanVien() {
+    public void xuatMaNhanVien() {
         PrintlnAdv(format("Mã nhân viên: %s", maNhanVien));
     }
 
-    public void XuatHoTen() {
+    public void xuatHoTen() {
         PrintlnAdv(format("Họ tên: %s", hoTen));
     }
 
-    public void XuatSoDienThoai() {
+    public void xuatSoDienThoai() {
         PrintlnAdv(format("Số điện thoại: %s", soDienThoai));
     }
 
-    public void XuatSoNgayLamViec() {
+    public void xuatSoNgayLamViec() {
         PrintlnAdv(format("Số ngày làm việc: %.1f", soNgayLamViec));
     }
 
-    public void XuatNhanSu() {
-        XuatMaNhanVien();
-        XuatHoTen();
-        XuatSoDienThoai();
-        XuatSoNgayLamViec();
+    public void xuatNhanSu() {
+        xuatMaNhanVien();
+        xuatHoTen();
+        xuatSoDienThoai();
+        xuatSoNgayLamViec();
     }
     // #endregion
 

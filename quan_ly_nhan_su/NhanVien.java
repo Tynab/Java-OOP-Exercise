@@ -20,34 +20,35 @@ public class NhanVien extends NhanSu {
         luongThang = soNgayLamViec * _luongNgay;
     }
 
-    public void NhapTenTruongPhong() {
+    public void nhapTenTruongPhong() {
         PrintAdv(GREEN, "Tên trưởng phòng: ", RESET);
         tenTruongPhong = _scan.nextLine();
     }
 
     @Override
-    public void NhapNhanSu() {
-        super.NhapNhanSu();
-        NhapTenTruongPhong();
+    public void nhapNhanSu() {
+        super.nhapNhanSu();
+        nhapTenTruongPhong();
+        tinhLuong();
     }
 
-    public void XuatTenTruongPhong() {
+    public void xuatTenTruongPhong() {
         PrintlnAdv(format("Tên trưởng phòng: %s", tenTruongPhong));
     }
 
-    public void XuatLuongThang() {
+    public void xuatLuongThang() {
         PrintlnAdv(format("Lương tháng: %s", WritePerfectDub(luongThang)));
     }
 
     @Override
-    public void XuatNhanSu() {
-        super.XuatMaNhanVien();
-        super.XuatHoTen();
-        super.XuatSoDienThoai();
+    public void xuatNhanSu() {
+        super.xuatMaNhanVien();
+        super.xuatHoTen();
+        super.xuatSoDienThoai();
         PrintlnAdv("Vị trí: nhân viên");
-        XuatTenTruongPhong();
-        super.XuatSoNgayLamViec();
-        XuatLuongThang();
+        xuatTenTruongPhong();
+        super.xuatSoNgayLamViec();
+        xuatLuongThang();
     }
     // #endregion
 

@@ -25,131 +25,131 @@ public class ThongTinCaNhan {
     // #endregion
 
     // #region Methods
-    public void NhapHoTen() {
+    public void nhapHoTen() {
         PrintAdv(GREEN, "Họ tên: ", RESET);
         hoTen = _scan.nextLine();
     }
 
-    public void NhapGioiTinh() {
+    public void nhapGioiTinh() {
         PrintAdv(GREEN, "Giới tính: ", RESET);
         gioiTinh = _scan.nextLine();
     }
 
-    public void NhapNgaySinh() {
+    public void nhapNgaySinh() {
         PrintAdv(GREEN, "Ngày sinh (dd/MM/yyyy): ", RESET);
         ngaySinh = ScanDate("dd/MM/yyyy");
     }
 
-    public void NhapNoiSinh() {
+    public void nhapNoiSinh() {
         PrintAdv(GREEN, "Nơi sinh: ", RESET);
         noiSinh = _scan.nextLine();
     }
 
-    public void NhapNoiOHienTai() {
+    public void nhapNoiOHienTai() {
         PrintAdv(GREEN, "Nơi ở hiện tại: ", RESET);
         noiOHienTai = _scan.nextLine();
     }
 
-    public void NhapQuocTich() {
+    public void nhapQuocTich() {
         PrintAdv(GREEN, "Quốc tịch: ", RESET);
         quocTich = _scan.nextLine();
     }
 
-    public void NhapDanToc() {
+    public void nhapDanToc() {
         PrintAdv(GREEN, "Dân tộc: ", RESET);
         danToc = _scan.nextLine();
     }
 
-    public void NhapTonGiao() {
+    public void nhapTonGiao() {
         PrintAdv(GREEN, "Tôn giáo: ", RESET);
         tonGiao = _scan.nextLine();
     }
 
-    public void NhapSoDienThoai() {
+    public void nhapSoDienThoai() {
         PrintAdv(GREEN, "Số điện thoại: ", RESET);
         soDienThoai = _scan.nextLine();
     }
 
-    public void NhapLienHeKhanCap() {
+    public void nhapLienHeKhanCap() {
         PrintAdv(GREEN, "Liên hệ khẩn cấp: ", RESET);
         lienHeKhanCap = _scan.nextLine();
     }
 
-    public void NhapThuDienTu() {
+    public void nhapThuDienTu() {
         PrintAdv(GREEN, "Thủ điện tử: ", RESET);
         thuDienTu = _scan.nextLine();
     }
 
-    public void NhapThongTinCaNhan() {
-        NhapHoTen();
-        NhapGioiTinh();
-        NhapNgaySinh();
-        NhapNoiSinh();
-        NhapNoiOHienTai();
-        NhapQuocTich();
-        NhapDanToc();
-        NhapTonGiao();
-        NhapSoDienThoai();
-        NhapLienHeKhanCap();
-        NhapThuDienTu();
+    public void nhapThongTinCaNhan() {
+        nhapHoTen();
+        nhapGioiTinh();
+        nhapNgaySinh();
+        nhapNoiSinh();
+        nhapNoiOHienTai();
+        nhapQuocTich();
+        nhapDanToc();
+        nhapTonGiao();
+        nhapSoDienThoai();
+        nhapLienHeKhanCap();
+        nhapThuDienTu();
     }
 
-    public void XuatHoTen() {
+    public void xuatHoTen() {
         PrintlnAdv(format("Họ tên: %s", hoTen));
     }
 
-    public void XuatGioiTinh() {
+    public void xuatGioiTinh() {
         PrintlnAdv(format("Giới tính: %s", gioiTinh));
     }
 
-    public void XuatNgaySinh() {
+    public void xuatNgaySinh() {
         PrintlnAdv(format("Ngày sinh: %s", DateToString(ngaySinh)));
     }
 
-    public void XuatNoiSinh() {
+    public void xuatNoiSinh() {
         PrintlnAdv(format("Nơi sinh: %s", noiSinh));
     }
 
-    public void XuatNoiOHienTai() {
+    public void xuatNoiOHienTai() {
         PrintlnAdv(format("Nơi ở hiện tại: %s", noiOHienTai));
     }
 
-    public void XuatQuocTich() {
+    public void xuatQuocTich() {
         PrintlnAdv(format("Quốc tịch: %s", quocTich));
     }
 
-    public void XuatDanToc() {
+    public void xuatDanToc() {
         PrintlnAdv(format("Dân tộc: %s", danToc));
     }
 
-    public void XuatTonGiao() {
+    public void xuatTonGiao() {
         PrintlnAdv(format("Tôn giáo: %s", tonGiao));
     }
 
-    public void XuatSoDienThoai() {
+    public void xuatSoDienThoai() {
         PrintlnAdv(format("Số điện thoại: %s", soDienThoai));
     }
 
-    public void XuatLienHeKhanCap() {
+    public void xuatLienHeKhanCap() {
         PrintlnAdv(format("Liên hệ khẩn cấp: %s", lienHeKhanCap));
     }
 
-    public void XuatThuDienTu() {
+    public void xuatThuDienTu() {
         PrintlnAdv(format("Thủ điện tử: %s", thuDienTu));
     }
 
-    public void XuatThongTinCaNhan() {
-        XuatHoTen();
-        XuatGioiTinh();
-        XuatNgaySinh();
-        XuatNoiSinh();
-        XuatNoiOHienTai();
-        XuatQuocTich();
-        XuatDanToc();
-        XuatTonGiao();
-        XuatSoDienThoai();
-        XuatLienHeKhanCap();
-        XuatThuDienTu();
+    public void xuatThongTinCaNhan() {
+        xuatHoTen();
+        xuatGioiTinh();
+        xuatNgaySinh();
+        xuatNoiSinh();
+        xuatNoiOHienTai();
+        xuatQuocTich();
+        xuatDanToc();
+        xuatTonGiao();
+        xuatSoDienThoai();
+        xuatLienHeKhanCap();
+        xuatThuDienTu();
     }
     // #endregion
 

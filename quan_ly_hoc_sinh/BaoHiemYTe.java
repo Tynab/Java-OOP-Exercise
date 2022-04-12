@@ -19,65 +19,65 @@ public class BaoHiemYTe {
     // #endregion
 
     // #region Methods
-    public void NhapSoPhieu() {
+    public void nhapSoPhieu() {
         PrintAdv(GREEN, "Số phiếu BHYT: ", RESET);
         soPhieu = _scan.nextLine();
     }
 
-    public void NhapNgayCap() {
+    public void nhapNgayCap() {
         PrintAdv(GREEN, "Ngày cấp BHYT (dd/MM/yyyy): ", RESET);
         ngayCap = ScanDate("dd/MM/yyyy");
     }
 
-    public void NhapTenBVDK() {
+    public void nhapTenBVDK() {
         PrintAdv(GREEN, "Tên Bệnh viện đăng ký BHYT: ", RESET);
         tenBVDK = _scan.nextLine();
     }
 
-    public void NhapTuNgay() {
+    public void nhapTuNgay() {
         PrintAdv(GREEN, "BHYT có giá trị từ ngày (dd/MM/yyyy): ", RESET);
         tuNgay = ScanDate("dd/MM/yyyy");
     }
 
-    public void NhapDenNgay() {
+    public void nhapDenNgay() {
         PrintAdv(GREEN, "BHYT có giá trị đến ngày (dd/MM/yyyy): ", RESET);
         denNgay = ScanDate("dd/MM/yyyy");
     }
 
-    public void NhapBaoHiemYTe() {
-        NhapSoPhieu();
-        NhapNgayCap();
-        NhapTenBVDK();
-        NhapTuNgay();
-        NhapDenNgay();
+    public void nhapBaoHiemYTe() {
+        nhapSoPhieu();
+        nhapNgayCap();
+        nhapTenBVDK();
+        nhapTuNgay();
+        nhapDenNgay();
     }
 
-    public void XuatSoPhieu() {
+    public void xuatSoPhieu() {
         PrintlnAdv(format("Số phiếu BHYT: %s", soPhieu));
     }
 
-    public void XuatNgayCap() {
+    public void xuatNgayCap() {
         PrintlnAdv(format("Ngày cấp BHYT: %s", DateToString(ngayCap)));
     }
 
-    public void XuatTenBVDK() {
+    public void xuatTenBVDK() {
         PrintlnAdv(format("Tên Bệnh viện đăng ký BHYT: %s", tenBVDK));
     }
 
-    public void XuatTuNgay() {
+    public void xuatTuNgay() {
         PrintlnAdv(format("BHYT có giá trị từ ngày: %s", DateToString(tuNgay)));
     }
 
-    public void XuatDenNgay() {
+    public void xuatDenNgay() {
         PrintlnAdv(format("BHYT có giá trị đến ngày: %s", DateToString(denNgay)));
     }
 
-    public void XuatBaoHiemYTe() {
-        XuatSoPhieu();
-        XuatNgayCap();
-        XuatTenBVDK();
-        XuatTuNgay();
-        XuatDenNgay();
+    public void xuatBaoHiemYTe() {
+        xuatSoPhieu();
+        xuatNgayCap();
+        xuatTenBVDK();
+        xuatTuNgay();
+        xuatDenNgay();
     }
     // #endregion
 

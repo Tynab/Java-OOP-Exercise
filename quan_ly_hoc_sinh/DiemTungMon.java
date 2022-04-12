@@ -14,64 +14,64 @@ public class DiemTungMon {
     // #endregion
 
     // #region Methods
-    public void TinhDiemTrungBinhMon() {
+    public void tinhDiemTrungBinhMon() {
         diemTrungBinhMon = (diemKTMieng + diemKT15Phut + diemKTGiuaKy * 2 + diemKTCuoiKy * 3) / 7;
     }
 
-    public void NhapDiemKTMieng(String monHoc, int hocKy) {
+    public void nhapDiemKTMieng(String monHoc, int hocKy) {
         PrintAdv(GREEN, format("Điểm trả bài %s kỳ %d: ", monHoc, hocKy), RESET);
         diemKTMieng = NumLimit(0d, 10d);
     }
 
-    public void NhapDiemKT15Phut(String monHoc, int hocKy) {
+    public void nhapDiemKT15Phut(String monHoc, int hocKy) {
         PrintAdv(GREEN, format("Điểm 15' %s kỳ %d: ", monHoc, hocKy), RESET);
         diemKT15Phut = NumLimit(0d, 10d);
     }
 
-    public void NhapDiemKTGiuaKy(String monHoc, int hocKy) {
+    public void nhapDiemKTGiuaKy(String monHoc, int hocKy) {
         PrintAdv(GREEN, format("Điểm %s giữa kỳ %d: ", monHoc, hocKy), RESET);
         diemKTGiuaKy = NumLimit(0d, 10d);
     }
 
-    public void NhapDiemKTCuoiKy(String monHoc, int hocKy) {
+    public void nhapDiemKTCuoiKy(String monHoc, int hocKy) {
         PrintAdv(GREEN, format("Điểm %s cuối kỳ %d: ", monHoc, hocKy), RESET);
         diemKTCuoiKy = NumLimit(0d, 10d);
     }
 
-    public void NhapDiemTungMon(String monHoc, int hocKy) {
-        NhapDiemKTMieng(monHoc, hocKy);
-        NhapDiemKT15Phut(monHoc, hocKy);
-        NhapDiemKTGiuaKy(monHoc, hocKy);
-        NhapDiemKTCuoiKy(monHoc, hocKy);
-        TinhDiemTrungBinhMon();
+    public void nhapDiemTungMon(String monHoc, int hocKy) {
+        nhapDiemKTMieng(monHoc, hocKy);
+        nhapDiemKT15Phut(monHoc, hocKy);
+        nhapDiemKTGiuaKy(monHoc, hocKy);
+        nhapDiemKTCuoiKy(monHoc, hocKy);
+        tinhDiemTrungBinhMon();
     }
 
-    public void XuatDiemKTMieng(String monHoc, int hocKy) {
+    public void xuatDiemKTMieng(String monHoc, int hocKy) {
         PrintlnAdv(format("Điểm trả bài %s kỳ %d: %s", monHoc, hocKy, WritePerfectDub(diemKTMieng)));
     }
 
-    public void XuatDiemKT15Phut(String monHoc, int hocKy) {
+    public void xuatDiemKT15Phut(String monHoc, int hocKy) {
         PrintlnAdv(format("Điểm 15' %s kỳ %d: %s", monHoc, hocKy, WritePerfectDub(diemKT15Phut)));
     }
 
-    public void XuatDiemKTGiuaKy(String monHoc, int hocKy) {
+    public void xuatDiemKTGiuaKy(String monHoc, int hocKy) {
         PrintlnAdv(format("Điểm %s giữa kỳ %d: %s", monHoc, hocKy, WritePerfectDub(diemKTGiuaKy)));
     }
 
-    public void XuatDiemKTCuoiKy(String monHoc, int hocKy) {
+    public void xuatDiemKTCuoiKy(String monHoc, int hocKy) {
         PrintlnAdv(format("Điểm %s cuối kỳ %d: %s", monHoc, hocKy, WritePerfectDub(diemKTCuoiKy)));
     }
 
-    public void XuatDiemTrungBinhMon(String monHoc, int hocKy) {
+    public void xuatDiemTrungBinhMon(String monHoc, int hocKy) {
         PrintlnAdv(format("Điểm trung bình môn %s kỳ %d: %.1f", monHoc, hocKy, diemTrungBinhMon));
     }
 
-    public void XuatDiemTungMon(String monHoc, int hocKy) {
-        XuatDiemKTMieng(monHoc, hocKy);
-        XuatDiemKT15Phut(monHoc, hocKy);
-        XuatDiemKTGiuaKy(monHoc, hocKy);
-        XuatDiemKTCuoiKy(monHoc, hocKy);
-        XuatDiemTrungBinhMon(monHoc, hocKy);
+    public void xuatDiemTungMon(String monHoc, int hocKy) {
+        xuatDiemKTMieng(monHoc, hocKy);
+        xuatDiemKT15Phut(monHoc, hocKy);
+        xuatDiemKTGiuaKy(monHoc, hocKy);
+        xuatDiemKTCuoiKy(monHoc, hocKy);
+        xuatDiemTrungBinhMon(monHoc, hocKy);
     }
     // #endregion
 

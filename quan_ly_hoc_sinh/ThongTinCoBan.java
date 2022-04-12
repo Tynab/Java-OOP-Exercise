@@ -19,76 +19,76 @@ public class ThongTinCoBan {
     // #endregion
 
     // #region Methods
-    public void NhapTenTruong() {
+    public void nhapTenTruong() {
         PrintAdv(GREEN, "Tên trường: ", RESET);
         tenTruong = _scan.nextLine();
     }
 
-    public void NhapTenBan() {
+    public void nhapTenBan() {
         PrintAdv(GREEN, "Tên ban: ", RESET);
         tenBan = _scan.nextLine();
     }
 
-    public void NhapTenKhoi() {
+    public void nhapTenKhoi() {
         PrintAdv(GREEN, "Tên khối: ", RESET);
         tenKhoi = _scan.nextLine();
     }
 
-    public void NhapTenLop() {
+    public void nhapTenLop() {
         PrintAdv(GREEN, "Tên lớp: ", RESET);
         tenLop = _scan.nextLine();
     }
 
-    public void NhapThamGiaHoatDong() {
+    public void nhapThamGiaHoatDong() {
         PrintAdv(GREEN, "Tham gia hoạt động: ", RESET);
         thamGiaHoatDong = _scan.nextLine();
     }
 
-    public void NhapBaoHiemYTe() {
+    public void nhapBaoHiemYTe() {
         baoHiemYTe = new BaoHiemYTe();
-        baoHiemYTe.NhapBaoHiemYTe();
+        baoHiemYTe.nhapBaoHiemYTe();
     }
 
-    public void NhapThongTinCoBan() {
-        NhapTenTruong();
-        NhapTenBan();
-        NhapTenKhoi();
-        NhapTenLop();
-        NhapThamGiaHoatDong();
-        NhapBaoHiemYTe();
+    public void nhapThongTinCoBan() {
+        nhapTenTruong();
+        nhapTenBan();
+        nhapTenKhoi();
+        nhapTenLop();
+        nhapThamGiaHoatDong();
+        nhapBaoHiemYTe();
     }
 
-    public void XuatTenTruong() {
+    public void xuatTenTruong() {
         PrintlnAdv(format("Tên trường: %s", tenTruong));
     }
 
-    public void XuatTenBan() {
+    public void xuatTenBan() {
         PrintlnAdv(format("Tên ban: %s", tenBan));
     }
 
-    public void XuatTenKhoi() {
+    public void xuatTenKhoi() {
         PrintlnAdv(format("Tên khối: %s", tenKhoi));
     }
 
-    public void XuatTenLop() {
+    public void xuatTenLop() {
         PrintlnAdv(format("Tên lớp: %s", tenLop));
     }
 
-    public void XuatThamGiaHoatDong() {
+    public void xuatThamGiaHoatDong() {
         PrintlnAdv(format("Tham gia hoạt động: %s", thamGiaHoatDong));
     }
 
-    public void XuatBaoHiemYTe() {
-        baoHiemYTe.XuatBaoHiemYTe();
+    public void xuatBaoHiemYTe() {
+        baoHiemYTe.xuatBaoHiemYTe();
     }
 
-    public void XuatThongTinCoBan() {
-        XuatTenTruong();
-        XuatTenBan();
-        XuatTenKhoi();
-        XuatTenLop();
-        XuatThamGiaHoatDong();
-        XuatBaoHiemYTe();
+    public void xuatThongTinCoBan() {
+        xuatTenTruong();
+        xuatTenBan();
+        xuatTenKhoi();
+        xuatTenLop();
+        xuatThamGiaHoatDong();
+        xuatBaoHiemYTe();
     }
     // #endregion
 

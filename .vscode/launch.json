@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch QuanLyHocSinh",
+            "request": "launch",
+            "mainClass": "quan_ly_hoc_sinh.QuanLyHocSinh",
+            "projectName": "OOP Exercise_88018af8"
+        },
+        {
+            "type": "java",
+            "name": "Launch QuanLyNhanSu",
+            "request": "launch",
+            "mainClass": "quan_ly_nhan_su.QuanLyNhanSu",
+            "projectName": "OOP Exercise_88018af8"
+        }
+    ]
+}

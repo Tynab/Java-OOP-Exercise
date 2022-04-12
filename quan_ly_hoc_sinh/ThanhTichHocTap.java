@@ -13,7 +13,7 @@ public class ThanhTichHocTap {
     // #endregion
 
     // #region Methods
-    public void XetHanhKiemCN() {
+    public void xetHanhKiemCN() {
         var hk1 = hocKy1.getHanhKiem();
         var hk2 = hocKy2.getHanhKiem();
         switch (hk1) {
@@ -124,7 +124,7 @@ public class ThanhTichHocTap {
         }
     }
 
-    public void TinhDiemTrungBinhCN() {
+    public void tinhDiemTrungBinhCN() {
         try {
             diemTrungBinhCN = (hocKy1.getDiemTrungBinhTCCM() + hocKy2.getDiemTrungBinhTCCM() * 2) / 3;
         } catch (Exception e) {
@@ -132,7 +132,7 @@ public class ThanhTichHocTap {
         }
     }
 
-    public void XepLoaiHocLucCN() {
+    public void xepLoaiHocLucCN() {
         if (diemTrungBinhCN >= 9) {
             xepLoaiCN = "Xuất Sắc";
         } else if (diemTrungBinhCN >= 8) {
@@ -148,54 +148,50 @@ public class ThanhTichHocTap {
         }
     }
 
-    public void NhapHocKy1() {
+    public void nhapHocKy1() {
         hocKy1 = new TheoKy();
-        hocKy1.NhapTheoKy(1);
+        hocKy1.nhapTheoKy(1);
     }
 
-    public void NhapHocKy2() {
+    public void nhapHocKy2() {
         hocKy2 = new TheoKy();
-        hocKy2.NhapTheoKy(2);
+        hocKy2.nhapTheoKy(2);
     }
 
-    public void NhapThanhTichHocTap() {
-        NhapHocKy1();
-        NhapHocKy2();
-        XetHanhKiemCN();
-        TinhDiemTrungBinhCN();
-        XepLoaiHocLucCN();
+    public void nhapThanhTichHocTap() {
+        nhapHocKy1();
+        nhapHocKy2();
+        xetHanhKiemCN();
+        tinhDiemTrungBinhCN();
+        xepLoaiHocLucCN();
     }
 
-    public void XuatHocKy1() {
-        hocKy1.XuatTheoKy(1);
+    public void xuatHocKy1() {
+        hocKy1.xuatTheoKy(1);
     }
 
-    public void XuatHocKy2() {
-        hocKy2.XuatTheoKy(2);
+    public void xuatHocKy2() {
+        hocKy2.xuatTheoKy(2);
     }
 
-    public void XuatHanhKiemCN() {
+    public void xuatHanhKiemCN() {
         PrintlnAdv(format("Hạnh kiểm cả năm: %s", hanhKiemCN));
     }
 
-    public void XuatDiemTrungBinhCN() {
+    public void xuatDiemTrungBinhCN() {
         PrintlnAdv(format("Điểm trung bình cả năm: %.1f", diemTrungBinhCN));
     }
 
-    public void XuatXepLoaiHocLucCN() {
+    public void xuatXepLoaiHocLucCN() {
         PrintlnAdv(format("Xếp loại học lực cả năm: %s", xepLoaiCN));
     }
 
-    public void XuatCN() {
-        XuatHanhKiemCN();
-        XuatDiemTrungBinhCN();
-        XuatXepLoaiHocLucCN();
-    }
-
-    public void XuatThanhTichHocTap() {
-        XuatHocKy1();
-        XuatHocKy2();
-        XuatCN();
+    public void xuatThanhTichHocTap() {
+        xuatHocKy1();
+        xuatHocKy2();
+        xuatHanhKiemCN();
+        xuatDiemTrungBinhCN();
+        xuatXepLoaiHocLucCN();
     }
     // #endregion
 

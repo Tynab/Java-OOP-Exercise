@@ -1,15 +1,15 @@
 package quan_ly_nhan_su;
 
-public class NhanVien extends ThanhVien {
+public class NhanVien extends NhanSu {
     // #region Fields
     private String tenTruongPhong;
-    private final double luongNgay = 100;
+    private final double _luongNgay = 100;
     // #endregion
 
     // #region Methods
     @Override
     public void tinhLuong() {
-        luongThang = soNgayLamViec * luongNgay;
+        luongThang = soNgayLamViec * _luongNgay;
     }
     //// #endregion
 

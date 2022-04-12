@@ -1,6 +1,6 @@
 package quan_ly_nhan_su;
 
-public class TruongPhong extends ThanhVien {
+public class TruongPhong extends NhanSu {
     // #region Fields
     private int soThanhVien;
     private final double _luongNgay = 200;

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static java.lang.Double.*;
 import static java.lang.Integer.*;
 import static java.lang.String.*;
 import static java.lang.System.*;
@@ -32,7 +31,7 @@ public class QuanLyNhanSu {
         // input
         out.println();
         PrintAdv(GREEN, "Nhập vào số thành viên: ", RESET);
-        var n = NumLimit(1, Integer.MAX_VALUE);
+        var n = NumLimit(1, MAX_VALUE);
         PrintAdv(GREEN, "Tên công ty: ", RESET);
         _tenCongTy = _scan.nextLine();
         PrintAdv(GREEN, "Mã số thuế: ", RESET);
@@ -59,7 +58,7 @@ public class QuanLyNhanSu {
         PrintlnAdv(format("Tên công ty: %s", _tenCongTy));
         PrintlnAdv(format("Mã số thuế: %s", _maSoThue));
         PrintlnAdv(format("Doanh thu tháng: %s", WritePerfectDub(_doanhThuThang)));
-        
+
         out.println();
     }
 

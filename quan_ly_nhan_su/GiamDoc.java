@@ -1,6 +1,6 @@
 package quan_ly_nhan_su;
 
-public class GiamDoc extends ThanhVien {
+public class GiamDoc extends NhanSu {
     // #region Fields
     private double coPhan;
     private final double _luongNgay = 300;

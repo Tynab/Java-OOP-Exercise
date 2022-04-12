@@ -8,7 +8,7 @@ import static java.lang.System.*;
 import static yan_lib.YANConstant.*;
 import static yan_lib.YANMethod.*;
 
-public class ThongTinCaNhan extends HocSinh {
+public class ThongTinCaNhan {
     // #region Fields
     private String hoTen;
     private String gioiTinh;

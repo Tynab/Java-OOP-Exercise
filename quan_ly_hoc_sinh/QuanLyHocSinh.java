@@ -32,7 +32,12 @@ public class QuanLyHocSinh {
             out.println();
             PrintlnAdv(CYAN, format("Học sinh thứ %d", i + 1));
             var hocSinh = new HocSinh();
-            hocSinh.NhapHocSinh();
+            do {
+                hocSinh.NhapMaHocSinh();
+            } while (IsRegist(hocSinh.getMaHocSinh()));
+            hocSinh.NhapThongTinCaNhan();
+            hocSinh.NhapThongTinCoBan();
+            hocSinh.NhapThanhTichHocTap();
             _dsHocSinh.add(hocSinh);
         }
         // output
@@ -42,6 +47,19 @@ public class QuanLyHocSinh {
         }
         // ctrl
         CheckOut();
+    }
+
+    // Kiểm tra mã học sinh đã đăng ký
+    private static boolean IsRegist(String maHocSinh) {
+        var is_success = false;
+        for (var hocSinh : _dsHocSinh) {
+            if (hocSinh.getMaHocSinh().equals(maHocSinh)) {
+                PrintlnAdv(RED, "Mã học sinh đã tồn tại!");
+                is_success = true;
+                break;
+            }
+        }
+        return is_success;
     }
 
     // Showntime

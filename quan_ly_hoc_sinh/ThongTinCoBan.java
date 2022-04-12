@@ -7,7 +7,7 @@ import static java.lang.System.*;
 import static yan_lib.YANConstant.*;
 import static yan_lib.YANMethod.*;
 
-public class ThongTinCoBan extends HocSinh {
+public class ThongTinCoBan {
     // #region Fields
     private String tenTruong;
     private String tenBan;

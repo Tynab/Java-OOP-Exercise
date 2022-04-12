@@ -42,8 +42,8 @@ public class QuanLyNhanSu {
         for (var i = 0; i < n; i++) {
             out.println();
             PrintlnAdv(CYAN, format("Thành viên thứ %d", i + 1));
-            var nhanSu = new NhanSu();
-            // nhanSu.NhapNhanSu();
+            var nhanSu = SplitUser();
+            nhanSu.NhapNhanSu();
             _dsNhanSu.add(nhanSu);
         }
         // output
@@ -51,6 +51,29 @@ public class QuanLyNhanSu {
 
         // ctrl
         CheckOut();
+    }
+
+    // Split user
+    private static NhanSu SplitUser() {
+        PrintlnAdv(RESET, format("Vị trí trong công ty"));
+        PrintlnAdv("1. Nhân viên   ");
+        PrintlnAdv("2. Trưởng phòng");
+        PrintlnAdv("3. Giám đốc    ");
+        PrintAdv("Chọn 1 trong các phương án trên: ");
+        switch (NumLimit(1, 3)) {
+            case 1: {
+                return new NhanVien();
+            }
+            case 2: {
+                return new TruongPhong();
+            }
+            case 3: {
+                return new GiamDoc();
+            }
+            default: {
+                return new NhanSu();
+            }
+        }
     }
 
     // Showntime

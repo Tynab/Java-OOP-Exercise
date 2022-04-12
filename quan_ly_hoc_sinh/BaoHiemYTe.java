@@ -2,7 +2,7 @@ package quan_ly_hoc_sinh;
 
 import java.util.Date;
 
-public class BaoHiemYTe extends HocSinh {
+public class BaoHiemYTe {
     // #region Fields
     private String soPhieu;
     private Date ngayCap;

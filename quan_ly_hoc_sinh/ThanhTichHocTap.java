@@ -33,10 +33,11 @@ public class ThanhTichHocTap extends HocSinh {
                         break;
                     }
                     default: {
-                        hanhKiemCN = null;
+                        hanhKiemCN = "";
                         break;
                     }
                 }
+                break;
             }
             case "Khá": {
                 switch (hk2) {
@@ -57,10 +58,11 @@ public class ThanhTichHocTap extends HocSinh {
                         break;
                     }
                     default: {
-                        hanhKiemCN = null;
+                        hanhKiemCN = "";
                         break;
                     }
                 }
+                break;
             }
             case "Trung Bình": {
                 switch (hk2) {
@@ -81,10 +83,11 @@ public class ThanhTichHocTap extends HocSinh {
                         break;
                     }
                     default: {
-                        hanhKiemCN = null;
+                        hanhKiemCN = "";
                         break;
                     }
                 }
+                break;
             }
             case "Yếu": {
                 switch (hk2) {
@@ -105,13 +108,14 @@ public class ThanhTichHocTap extends HocSinh {
                         break;
                     }
                     default: {
-                        hanhKiemCN = null;
+                        hanhKiemCN = "";
                         break;
                     }
                 }
+                break;
             }
             default: {
-                hanhKiemCN = null;
+                hanhKiemCN = "";
                 break;
             }
         }
@@ -119,7 +123,7 @@ public class ThanhTichHocTap extends HocSinh {
 
     public void TinhDiemTrungBinhCN() {
         try {
-            diemTrungBinhCN = (double) (hocKy1.getDiemTrungBinhTCCM() + hocKy2.getDiemTrungBinhTCCM() * 2) / 3;
+            diemTrungBinhCN = (hocKy1.getDiemTrungBinhTCCM() + hocKy2.getDiemTrungBinhTCCM() * 2) / 3;
         } catch (Exception e) {
             diemTrungBinhCN = 0;
         }

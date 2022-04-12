@@ -25,7 +25,7 @@ public class TheoKy extends HocSinh {
     // #region Methods
     public void TinhDiemTrungBinhTCCM() {
         try {
-            diemTrungBinhTCCM = (double) (monToan.getDiemTrungBinhMon() * 2 + monLy.getDiemTrungBinhMon()
+            diemTrungBinhTCCM = (monToan.getDiemTrungBinhMon() * 2 + monLy.getDiemTrungBinhMon()
                     + monHoa.getDiemTrungBinhMon() + monSinh.getDiemTrungBinhMon() + monVan.getDiemTrungBinhMon() * 2
                     + monAnh.getDiemTrungBinhMon() + monSu.getDiemTrungBinhMon() + monDia.getDiemTrungBinhMon()
                     + monTin.getDiemTrungBinhMon() + monCongNghe.getDiemTrungBinhMon() + monGDCD.getDiemTrungBinhMon()

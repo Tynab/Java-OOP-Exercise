@@ -28,44 +28,14 @@ public class QuanLyHocSinh {
         var n = NumLimit(1, MAX_VALUE);
         var hocSinh = new HocSinh[n];
         for (var i = 0; i < n; i++) {
-            PrintAdv(CYAN, format("Học sinh thứ %d", i + 1));
-            out.println();
+            PrintlnAdv(CYAN, format("Học sinh thứ %d", i + 1));
             hocSinh[i] = CreateNewStudent();
         }
         // output
         out.println(YELLOW);
         for (var i = 0; i < n; i++) {
-            PrintAdv(format("%s", ToUpperCaseAdv(hocSinh[i].getThongTinCaNhan().getHoTen())));
-            out.println();
-            PrintAdv("Học Kỳ 1");
-            out.println();
-            PrintAdv(format("Hạnh kiểm: %s", hocSinh[i].getThanhTichHocTap().getHocKy1().getHanhKiem()));
-            out.println();
-            PrintAdv(format("Điểm trung bình các môn: %s",
-                    WritePerfectDub(hocSinh[i].getThanhTichHocTap().getHocKy1().getDiemTrungBinhTCCM())));
-            out.println();
-            PrintAdv(format("Xếp loại: %s", hocSinh[i].getThanhTichHocTap().getHocKy1().getXepLoai()));
-            out.println();
-            PrintAdv("Học Kỳ 2");
-            out.println();
-            PrintAdv(format("Hạnh kiểm: %s", hocSinh[i].getThanhTichHocTap().getHocKy2().getHanhKiem()));
-            out.println();
-            PrintAdv(format("Điểm trung bình các môn: %s",
-                    WritePerfectDub(hocSinh[i].getThanhTichHocTap().getHocKy2().getDiemTrungBinhTCCM())));
-            out.println();
-            PrintAdv(format("Xếp loại: %s", hocSinh[i].getThanhTichHocTap().getHocKy2().getXepLoai()));
-            out.println();
-            PrintAdv("Cả Năm");
-            out.println();
-            PrintAdv(format("Hạnh kiểm: %s", hocSinh[i].getThanhTichHocTap().getHanhKiemCN()));
-            out.println();
-            PrintAdv(format("Điểm trung bình các môn: %s",
-                    WritePerfectDub(hocSinh[i].getThanhTichHocTap().getDiemTrungBinhCN())));
-            out.println();
-            PrintAdv(format("Xếp loại: %s", hocSinh[i].getThanhTichHocTap().getXepLoaiCN()));
-            out.println();
+            Showntime(hocSinh[i]);
         }
-        out.println();
         // ctrl
         CheckOut();
     }
@@ -130,8 +100,31 @@ public class QuanLyHocSinh {
         var hk = new TheoKy[2];
         for (var i = 0; i < 2; i++) {
             hk[i] = new TheoKy();
-            PrintAdv(GREEN, format("Hạnh kiểm học kỳ %d: ", i + 1), RESET);
-            hk[i].setHanhKiem(_scan.nextLine());
+            PrintlnAdv(CYAN, format("Hạnh kiểm học kỳ %d", i + 1));
+            PrintlnAdv("1. Tốt       ");
+            PrintlnAdv("2. Khá       ");
+            PrintlnAdv("4. Trung Bình");
+            PrintlnAdv("5. Yếu       ");
+            PrintAdv("Chọn 1 trong các phương án trên: ");
+            out.print(RESET);
+            switch (NumLimit(1, 4)) {
+                case 1: {
+                    hk[i].setHanhKiem("Tốt");
+                    break;
+                }
+                case 2: {
+                    hk[i].setHanhKiem("Khá");
+                    break;
+                }
+                case 3: {
+                    hk[i].setHanhKiem("Trung Bình");
+                    break;
+                }
+                case 4: {
+                    hk[i].setHanhKiem("Yếu");
+                    break;
+                }
+            }
             var mToan = new DiemTungMon();
             PrintAdv(GREEN, format("Điểm trả bài Toán kỳ %d: ", i + 1), RESET);
             mToan.setDiemKTMieng(NumLimit(0d, 10d));
@@ -141,6 +134,7 @@ public class QuanLyHocSinh {
             mToan.setDiemKTGiuaKy(NumLimit(0d, 10d));
             PrintAdv(GREEN, format("Điểm Toán cuối kỳ %d: ", i + 1), RESET);
             mToan.setDiemKTCuoiKy(NumLimit(0d, 10d));
+            mToan.TinhDiemTrungBinh();
             hk[i].setMonToan(mToan);
             var mLy = new DiemTungMon();
             PrintAdv(GREEN, format("Điểm trả bài Lý kỳ %d: ", i + 1), RESET);
@@ -151,6 +145,7 @@ public class QuanLyHocSinh {
             mLy.setDiemKTGiuaKy(NumLimit(0d, 10d));
             PrintAdv(GREEN, format("Điểm Lý cuối kỳ %d: ", i + 1), RESET);
             mLy.setDiemKTCuoiKy(NumLimit(0d, 10d));
+            mLy.TinhDiemTrungBinh();
             hk[i].setMonLy(mLy);
             var mHoa = new DiemTungMon();
             PrintAdv(GREEN, format("Điểm trả bài Hóa kỳ %d: ", i + 1), RESET);
@@ -161,6 +156,7 @@ public class QuanLyHocSinh {
             mHoa.setDiemKTGiuaKy(NumLimit(0d, 10d));
             PrintAdv(GREEN, format("Điểm Hóa cuối kỳ %d: ", i + 1), RESET);
             mHoa.setDiemKTCuoiKy(NumLimit(0d, 10d));
+            mHoa.TinhDiemTrungBinh();
             hk[i].setMonHoa(mHoa);
             var mSinh = new DiemTungMon();
             PrintAdv(GREEN, format("Điểm trả bài Sinh kỳ %d: ", i + 1), RESET);
@@ -171,6 +167,7 @@ public class QuanLyHocSinh {
             mSinh.setDiemKTGiuaKy(NumLimit(0d, 10d));
             PrintAdv(GREEN, format("Điểm Sinh cuối kỳ %d: ", i + 1), RESET);
             mSinh.setDiemKTCuoiKy(NumLimit(0d, 10d));
+            mSinh.TinhDiemTrungBinh();
             hk[i].setMonSinh(mSinh);
             var mVan = new DiemTungMon();
             PrintAdv(GREEN, format("Điểm trả bài Văn kỳ %d: ", i + 1), RESET);
@@ -181,6 +178,7 @@ public class QuanLyHocSinh {
             mVan.setDiemKTGiuaKy(NumLimit(0d, 10d));
             PrintAdv(GREEN, format("Điểm Văn cuối kỳ %d: ", i + 1), RESET);
             mVan.setDiemKTCuoiKy(NumLimit(0d, 10d));
+            mVan.TinhDiemTrungBinh();
             hk[i].setMonVan(mVan);
             var mAnh = new DiemTungMon();
             PrintAdv(GREEN, format("Điểm trả bài Anh kỳ %d: ", i + 1), RESET);
@@ -191,6 +189,7 @@ public class QuanLyHocSinh {
             mAnh.setDiemKTGiuaKy(NumLimit(0d, 10d));
             PrintAdv(GREEN, format("Điểm Anh cuối kỳ %d: ", i + 1), RESET);
             mAnh.setDiemKTCuoiKy(NumLimit(0d, 10d));
+            mAnh.TinhDiemTrungBinh();
             hk[i].setMonAnh(mAnh);
             var mSu = new DiemTungMon();
             PrintAdv(GREEN, format("Điểm trả bài Sử kỳ %d: ", i + 1), RESET);
@@ -201,6 +200,7 @@ public class QuanLyHocSinh {
             mSu.setDiemKTGiuaKy(NumLimit(0d, 10d));
             PrintAdv(GREEN, format("Điểm Sử cuối kỳ %d: ", i + 1), RESET);
             mSu.setDiemKTCuoiKy(NumLimit(0d, 10d));
+            mSu.TinhDiemTrungBinh();
             hk[i].setMonSu(mSu);
             var mDia = new DiemTungMon();
             PrintAdv(GREEN, format("Điểm trả bài Địa kỳ %d: ", i + 1), RESET);
@@ -211,6 +211,7 @@ public class QuanLyHocSinh {
             mDia.setDiemKTGiuaKy(NumLimit(0d, 10d));
             PrintAdv(GREEN, format("Điểm Địa cuối kỳ %d: ", i + 1), RESET);
             mDia.setDiemKTCuoiKy(NumLimit(0d, 10d));
+            mDia.TinhDiemTrungBinh();
             hk[i].setMonDia(mDia);
             var mTin = new DiemTungMon();
             PrintAdv(GREEN, format("Điểm trả bài Tin kỳ %d: ", i + 1), RESET);
@@ -221,6 +222,7 @@ public class QuanLyHocSinh {
             mTin.setDiemKTGiuaKy(NumLimit(0d, 10d));
             PrintAdv(GREEN, format("Điểm Tin cuối kỳ %d: ", i + 1), RESET);
             mTin.setDiemKTCuoiKy(NumLimit(0d, 10d));
+            mTin.TinhDiemTrungBinh();
             hk[i].setMonTin(mTin);
             var mCN = new DiemTungMon();
             PrintAdv(GREEN, format("Điểm trả bài Công Nghệ kỳ %d: ", i + 1), RESET);
@@ -231,6 +233,7 @@ public class QuanLyHocSinh {
             mCN.setDiemKTGiuaKy(NumLimit(0d, 10d));
             PrintAdv(GREEN, format("Điểm Công Nghệ cuối kỳ %d: ", i + 1), RESET);
             mCN.setDiemKTCuoiKy(NumLimit(0d, 10d));
+            mCN.TinhDiemTrungBinh();
             hk[i].setMonCongNghe(mCN);
             var mGDCD = new DiemTungMon();
             PrintAdv(GREEN, format("Điểm trả bài Giáo Dục Công Dân kỳ %d: ", i + 1), RESET);
@@ -241,6 +244,7 @@ public class QuanLyHocSinh {
             mGDCD.setDiemKTGiuaKy(NumLimit(0d, 10d));
             PrintAdv(GREEN, format("Điểm Giáo Dục Công Dân cuối kỳ %d: ", i + 1), RESET);
             mGDCD.setDiemKTCuoiKy(NumLimit(0d, 10d));
+            mGDCD.TinhDiemTrungBinh();
             hk[i].setMonGDCD(mGDCD);
             var mTD = new DiemTungMon();
             PrintAdv(GREEN, format("Điểm trả bài Thể Dục kỳ %d: ", i + 1), RESET);
@@ -251,6 +255,7 @@ public class QuanLyHocSinh {
             mTD.setDiemKTGiuaKy(NumLimit(0d, 10d));
             PrintAdv(GREEN, format("Điểm Thể Dục cuối kỳ %d: ", i + 1), RESET);
             mTD.setDiemKTCuoiKy(NumLimit(0d, 10d));
+            mTD.TinhDiemTrungBinh();
             hk[i].setMonTheDuc(mTD);
             var mQP = new DiemTungMon();
             PrintAdv(GREEN, format("Điểm trả bài Quốc Phòng kỳ %d: ", i + 1), RESET);
@@ -261,6 +266,7 @@ public class QuanLyHocSinh {
             mQP.setDiemKTGiuaKy(NumLimit(0d, 10d));
             PrintAdv(GREEN, format("Điểm Quốc Phòng cuối kỳ %d: ", i + 1), RESET);
             mQP.setDiemKTCuoiKy(NumLimit(0d, 10d));
+            mQP.TinhDiemTrungBinh();
             hk[i].setMonQuocPhong(mQP);
             var mNT = new DiemTungMon();
             PrintAdv(GREEN, format("Điểm trả bài Nghệ Thuật kỳ %d: ", i + 1), RESET);
@@ -271,6 +277,7 @@ public class QuanLyHocSinh {
             mNT.setDiemKTGiuaKy(NumLimit(0d, 10d));
             PrintAdv(GREEN, format("Điểm Nghệ Thuật cuối kỳ %d: ", i + 1), RESET);
             mNT.setDiemKTCuoiKy(NumLimit(0d, 10d));
+            mNT.TinhDiemTrungBinh();
             hk[i].setMonNgheThuat(mNT);
             var mTC = new DiemTungMon();
             PrintAdv(GREEN, format("Điểm trả bài Tự Chọn kỳ %d: ", i + 1), RESET);
@@ -281,6 +288,7 @@ public class QuanLyHocSinh {
             mTC.setDiemKTGiuaKy(NumLimit(0d, 10d));
             PrintAdv(GREEN, format("Điểm Tự Chọn cuối kỳ %d: ", i + 1), RESET);
             mTC.setDiemKTCuoiKy(NumLimit(0d, 10d));
+            mTC.TinhDiemTrungBinh();
             hk[i].setMonTuChon(mTC);
             hk[i].TinhDiemTrungBinhTCCM();
             hk[i].XepLoaiHocLuc();
@@ -292,6 +300,87 @@ public class QuanLyHocSinh {
         ttht.XepLoaiHocLucCN();
         hocSinh.setThanhTichHocTap(ttht);
         return hocSinh;
+    }
+
+    // Showntime
+    private static void Showntime(HocSinh hocSinh) {
+        PrintlnAdv(format("%s", ToUpperCaseAdv(hocSinh.getThongTinCaNhan().getHoTen())));
+        PrintlnAdv("Học Kỳ 1");
+        PrintlnAdv(format("Hạnh kiểm: %s", hocSinh.getThanhTichHocTap().getHocKy1().getHanhKiem()));
+        PrintlnAdv(format("Điểm trung bình môn Toán: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy1().getMonToan().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Lý: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy1().getMonLy().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Hóa: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy1().getMonHoa().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Sinh: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy1().getMonSinh().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Văn: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy1().getMonVan().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Anh: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy1().getMonAnh().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Sử: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy1().getMonSu().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Địa: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy1().getMonDia().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Tin: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy1().getMonTin().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Công Nghệ: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy1().getMonCongNghe().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Giáo Dục Công Dân: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy1().getMonGDCD().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Thể Dục: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy1().getMonTheDuc().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Quốc Phòng: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy1().getMonQuocPhong().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Nghệ Thuật: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy1().getMonNgheThuat().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Tự Chọn: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy1().getMonTuChon().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình các môn: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy1().getDiemTrungBinhTCCM()));
+        PrintlnAdv(format("Xếp loại: %s", hocSinh.getThanhTichHocTap().getHocKy1().getXepLoai()));
+        PrintlnAdv("Học Kỳ 2");
+        PrintlnAdv(format("Hạnh kiểm: %s", hocSinh.getThanhTichHocTap().getHocKy2().getHanhKiem()));
+        PrintlnAdv(format("Điểm trung bình môn Toán: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy2().getMonToan().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Lý: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy2().getMonLy().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Hóa: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy2().getMonHoa().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Sinh: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy2().getMonSinh().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Văn: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy2().getMonVan().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Anh: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy2().getMonAnh().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Sử: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy2().getMonSu().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Địa: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy2().getMonDia().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Tin: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy2().getMonTin().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Công Nghệ: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy2().getMonCongNghe().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Giáo Dục Công Dân: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy2().getMonGDCD().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Thể Dục: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy2().getMonTheDuc().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Quốc Phòng: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy2().getMonQuocPhong().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Nghệ Thuật: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy2().getMonNgheThuat().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình môn Tự Chọn: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy2().getMonTuChon().getDiemTrungBinhMon()));
+        PrintlnAdv(format("Điểm trung bình các môn: %.1f",
+                hocSinh.getThanhTichHocTap().getHocKy2().getDiemTrungBinhTCCM()));
+        PrintlnAdv(format("Xếp loại: %s", hocSinh.getThanhTichHocTap().getHocKy2().getXepLoai()));
+        PrintlnAdv("Cả Năm");
+        PrintlnAdv(format("Hạnh kiểm: %s", hocSinh.getThanhTichHocTap().getHanhKiemCN()));
+        PrintlnAdv(format("Điểm trung bình các môn: %.1f",
+                hocSinh.getThanhTichHocTap().getDiemTrungBinhCN()));
+        PrintlnAdv(format("Xếp loại: %s", hocSinh.getThanhTichHocTap().getXepLoaiCN()));
+        out.println();
     }
 
     // Check out

@@ -35,6 +35,11 @@ public class GiamDoc extends NhanSu {
     }
 
     @Override
+    public void xuatChucVu() {
+        PrintlnAdv(format("Chức vụ: %s", _chucVu));
+    }
+
+    @Override
     public void xuatLuongThang() {
         PrintlnAdv(format("Lương tháng: %s", WritePerfectDub(luongThang)));
     }

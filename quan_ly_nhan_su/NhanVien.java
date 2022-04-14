@@ -36,6 +36,7 @@ public class NhanVien extends NhanSu {
         PrintlnAdv(format("Tên trưởng phòng: %s", tenTruongPhong));
     }
 
+    @Override
     public void xuatLuongThang() {
         PrintlnAdv(format("Lương tháng: %s", WritePerfectDub(luongThang)));
     }
@@ -45,7 +46,7 @@ public class NhanVien extends NhanSu {
         super.xuatMaNhanVien();
         super.xuatHoTen();
         super.xuatSoDienThoai();
-        PrintlnAdv("Vị trí: nhân viên");
+        super.xuatChucVu();
         xuatTenTruongPhong();
         super.xuatSoNgayLamViec();
         xuatLuongThang();

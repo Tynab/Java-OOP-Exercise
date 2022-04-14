@@ -6,6 +6,7 @@ import static yan_lib.YANMethod.*;
 public class TruongPhong extends NhanSu {
     // #region Fields
     private int soThanhVien;
+    private final String _chucVu = "trưởng phòng";
     private final double _luongNgay = 200;
     // #endregion
 
@@ -19,6 +20,12 @@ public class TruongPhong extends NhanSu {
         PrintlnAdv(format("Số thành viên: %s", soThanhVien));
     }
 
+    @Override
+    public void xuatChucVu() {
+        PrintlnAdv(format("Chức vụ: %s", _chucVu));
+    }
+
+    @Override
     public void xuatLuongThang() {
         PrintlnAdv(format("Lương tháng: %s", WritePerfectDub(luongThang)));
     }
@@ -28,7 +35,7 @@ public class TruongPhong extends NhanSu {
         super.xuatMaNhanVien();
         super.xuatHoTen();
         super.xuatSoDienThoai();
-        PrintlnAdv("Vị trí: trưởng phòng");
+        xuatChucVu();
         xuatSoThanhVien();
         super.xuatSoNgayLamViec();
         xuatLuongThang();

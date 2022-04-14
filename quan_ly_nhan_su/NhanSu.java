@@ -15,6 +15,7 @@ public class NhanSu {
     protected double soNgayLamViec;
     protected double luongThang;
     private final Scanner _scan = new Scanner(in);
+    private final String _chucVu = "nhân viên";
     // #endregion
 
     // #region Methods
@@ -60,14 +61,23 @@ public class NhanSu {
         PrintlnAdv(format("Số điện thoại: %s", soDienThoai));
     }
 
+    public void xuatChucVu() {
+        PrintlnAdv(format("Chức vụ: %s", _chucVu));
+    }
+
     public void xuatSoNgayLamViec() {
-        PrintlnAdv(format("Số ngày làm việc: %.1f", soNgayLamViec));
+        PrintlnAdv(format("Số ngày làm việc: %s", WritePerfectDub(soNgayLamViec)));
+    }
+
+    public void xuatLuongThang() {
+        PrintlnAdv(format("Lương tháng: %s", WritePerfectDub(luongThang)));
     }
 
     public void xuatNhanSu() {
         xuatMaNhanVien();
         xuatHoTen();
         xuatSoDienThoai();
+        xuatChucVu();
         xuatSoNgayLamViec();
     }
     // #endregion

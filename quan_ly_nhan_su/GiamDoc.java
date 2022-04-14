@@ -8,6 +8,7 @@ import static yan_lib.YANMethod.*;
 public class GiamDoc extends NhanSu {
     // #region Fields
     private double coPhan;
+    private final String _chucVu = "giám đốc";
     private final double _luongNgay = 300;
     // #endregion
 
@@ -33,6 +34,7 @@ public class GiamDoc extends NhanSu {
         PrintlnAdv(format("Cổ phần: %s", coPhan));
     }
 
+    @Override
     public void xuatLuongThang() {
         PrintlnAdv(format("Lương tháng: %s", WritePerfectDub(luongThang)));
     }
@@ -42,7 +44,7 @@ public class GiamDoc extends NhanSu {
         super.xuatMaNhanVien();
         super.xuatHoTen();
         super.xuatSoDienThoai();
-        PrintlnAdv("Vị trí: giám đốc");
+        xuatChucVu();
         xuatCoPhan();
         super.xuatSoNgayLamViec();
         xuatLuongThang();

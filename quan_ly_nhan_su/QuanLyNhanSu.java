@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static java.util.Collections.*;
 import static java.lang.Integer.*;
 import static java.lang.String.*;
 import static java.lang.System.*;
+import static quan_ly_nhan_su.MethodScript.*;
 import static yan_lib.YANConstant.*;
 import static yan_lib.YANMethod.*;
 
@@ -29,11 +31,11 @@ public class QuanLyNhanSu {
         for (var i = 0; i < n; i++) {
             out.println();
             PrintlnAdv(CYAN, format("Thành viên thứ %d", i + 1));
-            _dsNhanSu.add(AddNewbie());
+            _dsNhanSu.add(AddNewbie(_dsNhanSu));
         }
         // process
-        CheckTeamLead();
-        MemberEachTeam();
+        CheckTeamLead(_dsNhanSu);
+        MemberEachTeam(_dsNhanSu);
         // content
         Main();
     }
@@ -57,7 +59,7 @@ public class QuanLyNhanSu {
         PrintlnAdv(" 6. Tìm thành viên có lương cao nhất   ");
         PrintlnAdv(" 7. Tìm trưởng phòng quản lý nhiều nhất");
         PrintlnAdv(" 8. Sắp xếp nhân sự theo tên           ");
-        PrintlnAdv(" 9. Sắp xếp nhân giảm dần              ");
+        PrintlnAdv(" 9. Sắp xếp nhân sự giảm dần           ");
         PrintlnAdv("10. Tìm giám đốc có cổ phần nhiều nhất ");
         PrintlnAdv("11. Tính tổng thu nhập của mỗi giám đốc");
         PrintAdv("Chọn 1 trong các phương án trên: ");
@@ -84,134 +86,32 @@ public class QuanLyNhanSu {
                 break;
             }
             case 6: {
+                UnitF();
                 break;
             }
             case 7: {
+                UnitG();
                 break;
             }
             case 8: {
+                UnitH();
                 break;
             }
             case 9: {
+                UnitI();
                 break;
             }
             case 10: {
+                UnitJ();
                 break;
             }
             case 11: {
+                UnitK();
                 break;
             }
         }
         // ctrl
         CheckOut();
-    }
-
-    // Add new user
-    private static NhanSu AddNewbie() {
-        var nhanSu = UserType();
-        do {
-            nhanSu.nhapMaNhanVien();
-        } while (IsRegist(nhanSu.getMaNhanVien()));
-        nhanSu.nhapNhanSu();
-        return nhanSu;
-    }
-
-    // Split user
-    private static NhanSu UserType() {
-        PrintlnAdv(RESET, "Vị trí trong công ty");
-        PrintlnAdv("1. Nhân viên   ");
-        PrintlnAdv("2. Trưởng phòng");
-        PrintlnAdv("3. Giám đốc    ");
-        PrintAdv("Chọn 1 trong các phương án trên: ");
-        switch (NumLimit(1, 3)) {
-            case 1: {
-                return new NhanVien();
-            }
-            case 2: {
-                return new TruongPhong();
-            }
-            case 3: {
-                return new GiamDoc();
-            }
-            default: {
-                return new NhanSu();
-            }
-        }
-    }
-
-    // Check regist
-    private static boolean IsRegist(String maNhanVien) {
-        var is_success = false;
-        for (var nhanSu : _dsNhanSu) {
-            if (nhanSu.getMaNhanVien().equals(maNhanVien)) {
-                PrintlnAdv(RED, "Mã nhân viên đã tồn tại!");
-                is_success = true;
-                break;
-            }
-        }
-        return is_success;
-    }
-
-    // Check team leader
-    private static void CheckTeamLead() {
-        for (var nhanSu : _dsNhanSu) {
-            if (nhanSu instanceof NhanVien) {
-                var nhanVien = (NhanVien) nhanSu;
-                var is_success = false;
-                for (var truongPhong : _dsNhanSu) {
-                    if (truongPhong instanceof TruongPhong
-                            && nhanVien.getTenTruongPhong().equals(truongPhong.getHoTen())) {
-                        is_success = true;
-                        break;
-                    }
-                }
-                if (!is_success) {
-                    nhanVien.setTenTruongPhong("");
-                }
-            }
-        }
-    }
-
-    // Count member in team
-    private static void MemberEachTeam() {
-        for (var nhanSu : _dsNhanSu) {
-            if (nhanSu instanceof TruongPhong) {
-                var truongPhong = ((TruongPhong) nhanSu);
-                var count = 0;
-                for (var nhanVien : _dsNhanSu) {
-                    if (nhanVien instanceof NhanVien
-                            && ((NhanVien) nhanVien).getTenTruongPhong().equals(truongPhong.getHoTen())) {
-                        count++;
-                    }
-                }
-                truongPhong.setSoThanhVien(count);
-                truongPhong.tinhLuong();
-            }
-        }
-    }
-
-    // Find index by code user
-    private static int FindIndexByCode(String maNhanVien) {
-        var index = -1;
-        for (var i = 0; i < _dsNhanSu.size(); i++) {
-            if (_dsNhanSu.get(i).getMaNhanVien().equals(maNhanVien)) {
-                index = i;
-                break;
-            }
-        }
-        return index;
-    }
-
-    // NhanVien transform to TruongPhong
-    private static TruongPhong NhanVienTransToTruongPhong(NhanSu nhanSu) {
-        var truongPhong = new TruongPhong();
-        truongPhong.setMaNhanVien(nhanSu.getMaNhanVien());
-        truongPhong.setHoTen(nhanSu.getHoTen());
-        truongPhong.setSoDienThoai(nhanSu.getSoDienThoai());
-        truongPhong.setSoNgayLamViec(nhanSu.getSoNgayLamViec());
-        truongPhong.setSoThanhVien(0);
-        truongPhong.tinhLuong();
-        return truongPhong;
     }
 
     // Unit 1
@@ -226,22 +126,22 @@ public class QuanLyNhanSu {
         var max = dsNhanVien.size();
         if (max > 0) {
             // cap
-            out.println();
-            PrintlnAdv(RESET, "Danh sách nhân viên");
+            out.println(RESET);
+            PrintlnAdv("Danh sách nhân viên");
             for (var i = 0; i < max; i++) {
                 var nhanVien = dsNhanVien.get(i);
                 PrintlnAdv(format("%d. %s (%s)", i + 1, nhanVien.getHoTen(), nhanVien.getMaNhanVien()));
             }
             PrintAdv("Chọn 1 trong các phương án trên: ");
-            // replace
-            var index = FindIndexByCode(dsNhanVien.get(NumLimit(1, max) - 1).getMaNhanVien());
+            // main
+            var index = FindIndexByCode(_dsNhanSu, dsNhanVien.get(NumLimit(1, max) - 1).getMaNhanVien());
             _dsNhanSu.add(index, NhanVienTransToTruongPhong(_dsNhanSu.get(index)));
             _dsNhanSu.remove(index + 1);
             // finish
-            MemberEachTeam();
+            MemberEachTeam(_dsNhanSu);
             UnitD();
         } else {
-            out.println(YELLOW);
+            CheckIn();
             PrintlnAdv("Công ty không có nhân viên nào!");
             out.println();
         }
@@ -249,41 +149,39 @@ public class QuanLyNhanSu {
 
     // Unit 2
     private static void UnitB() {
-        out.println();
-        PrintlnAdv(CYAN, "Thêm thành viên mới");
-        _dsNhanSu.add(AddNewbie());
+        // cap
+        out.println(CYAN);
+        PrintlnAdv("Thêm thành viên mới");
+        // main
+        _dsNhanSu.add(AddNewbie(_dsNhanSu));
         // finish
-        MemberEachTeam();
+        MemberEachTeam(_dsNhanSu);
         UnitD();
     }
 
     // Unit 3
     private static void UnitC() {
         // cap
-        PrintlnAdv(RESET, "Danh sách thành viên");
+        PrintlnAdv(RESET, "Danh sách nhân viên");
         var max = _dsNhanSu.size();
         for (var i = 0; i < max; i++) {
             var nhanSu = _dsNhanSu.get(i);
             PrintlnAdv(format("%d. %s (%s)", i + 1, nhanSu.getHoTen(), nhanSu.getMaNhanVien()));
         }
         PrintAdv("Chọn 1 trong các phương án trên: ");
-        // remove
-        var index = FindIndexByCode(_dsNhanSu.get(NumLimit(1, max) - 1).getMaNhanVien());
+        // main
+        var index = FindIndexByCode(_dsNhanSu, _dsNhanSu.get(NumLimit(1, max) - 1).getMaNhanVien());
         _dsNhanSu.remove(index);
         // finish
-        CheckTeamLead();
-        MemberEachTeam();
+        CheckTeamLead(_dsNhanSu);
+        MemberEachTeam(_dsNhanSu);
         UnitD();
     }
 
     // Unit 4
     private static void UnitD() {
         // cap
-        out.println(YELLOW);
-        PrintlnAdv(format("Công ty %s", ToTitleCaseAdv(_tenCongTy)));
-        PrintlnAdv(format("MST %s", _maSoThue));
-        PrintlnAdv(format("Doanh Thu Tháng %s", WritePerfectDub(_doanhThuThang)));
-        out.println();
+        CheckIn();
         // shown
         for (var nhanSu : _dsNhanSu) {
             nhanSu.xuatNhanSu();
@@ -291,25 +189,119 @@ public class QuanLyNhanSu {
         }
     }
 
-    //Unit 5
-    private static void UnitE(){
+    // Unit 5
+    private static void UnitE() {
+        // intro
+        UnitD();
+        // finish
+        PrintlnAdv(format("Tổng lương toàn công ty: %,.0f", SumSalary(_dsNhanSu)));
+        out.println();
+    }
+
+    // Unit 6
+    private static void UnitF() {
         // cap
+        CheckIn();
+        PrintlnAdv("Thành viên lương cao nhất");
+        out.println();
+        // main
+        var dsTopSalary = TopSalary(_dsNhanSu);
+        // shown
+        for (var topNhanSu : dsTopSalary) {
+            topNhanSu.xuatHoTen();
+            topNhanSu.xuatChucVu();
+            topNhanSu.xuatLuongThang();
+            out.println();
+        }
+    }
+
+    // Unit 7
+    private static void UnitG() {
+        // cap
+        CheckIn();
+        PrintlnAdv("Trưởng phòng quản lý nhiều thành viên nhât");
+        out.println();
+        // main
+        var dsTopTeam = TopTeam(_dsNhanSu);
+        // shown
+        for (var topTruongPhong : dsTopTeam) {
+            topTruongPhong.xuatHoTen();
+            topTruongPhong.xuatSoThanhVien();
+            out.println();
+        }
+    }
+
+    // Unit 8
+    private static void UnitH() {
+        // cap
+        CheckIn();
+        PrintlnAdv("Sắp xếp nhân sự theo tên");
+        out.println();
+        // main
+        var dsNhanSu = new ArrayList<NhanSu>(_dsNhanSu);
+        SortByName(dsNhanSu);
+        // shown
+        for (var nhanSu : dsNhanSu) {
+            nhanSu.xuatNhanSu();
+            out.println();
+        }
+    }
+
+    // Unit 9
+    private static void UnitI() {
+        // cap
+        CheckIn();
+        PrintlnAdv("Sắp xếp nhân sự giảm dần");
+        out.println();
+        // main
+        var dsNhanSu = new ArrayList<NhanSu>(_dsNhanSu);
+        SortByCode(dsNhanSu);
+        reverse(dsNhanSu);
+        // shown
+        for (var nhanSu : dsNhanSu) {
+            nhanSu.xuatNhanSu();
+            out.println();
+        }
+    }
+
+    // Unit 10
+    private static void UnitJ() {
+        // cap
+        CheckIn();
+        PrintlnAdv("Giám đốc có nhiều cổ phần nhất");
+        out.println();
+        // main
+        var dsTopShare = TopShare(_dsNhanSu);
+        // shown
+        for (var topGiamDoc : dsTopShare) {
+            topGiamDoc.xuatHoTen();
+            topGiamDoc.xuatCoPhan();
+            out.println();
+        }
+    }
+
+    // Unit 11
+    private static void UnitK() {
+        // cap
+        CheckIn();
+        PrintlnAdv("Thu nhập giám đốc");
+        out.println();
+        // main
+        var dsGiamDoc = AllInGiamDoc(_dsNhanSu, _doanhThuThang);
+        // shown
+        for (var topGiamDoc : dsGiamDoc) {
+            topGiamDoc.xuatHoTen();
+            topGiamDoc.xuatThuNhap();
+            out.println();
+        }
+    }
+
+    // Check in
+    private static void CheckIn() {
         out.println(YELLOW);
         PrintlnAdv(format("Công ty %s", ToTitleCaseAdv(_tenCongTy)));
         PrintlnAdv(format("MST %s", _maSoThue));
         PrintlnAdv(format("Doanh Thu Tháng %s", WritePerfectDub(_doanhThuThang)));
-        out.println();
-        // sum
-        var sum = 0d;
-        for (var nhanSu : _dsNhanSu) {
-            nhanSu.xuatHoTen();
-            nhanSu.xuatChucVu();
-            nhanSu.xuatLuongThang();
-            out.println();
-            sum += nhanSu.getLuongThang();
-        }
-        //finish
-        PrintlnAdv(format("Tổng lương toàn công ty: %s", WritePerfectDub(sum)));
         out.println();
     }
 

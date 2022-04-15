@@ -17,7 +17,7 @@ public class TruongPhong extends NhanSu {
     }
 
     public void xuatSoThanhVien() {
-        PrintlnAdv(format("Số thành viên: %s", soThanhVien));
+        PrintlnAdv(format("Số thành viên: %d", soThanhVien));
     }
 
     @Override
@@ -27,7 +27,7 @@ public class TruongPhong extends NhanSu {
 
     @Override
     public void xuatLuongThang() {
-        PrintlnAdv(format("Lương tháng: %s", WritePerfectDub(luongThang)));
+        PrintlnAdv(format("Lương tháng: %,.0f", luongThang));
     }
 
     @Override

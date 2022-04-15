@@ -70,7 +70,7 @@ public class NhanSu {
     }
 
     public void xuatLuongThang() {
-        PrintlnAdv(format("Lương tháng: %s", WritePerfectDub(luongThang)));
+        PrintlnAdv(format("Lương tháng: %,.0f", luongThang));
     }
 
     public void xuatNhanSu() {

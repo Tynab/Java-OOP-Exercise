@@ -38,7 +38,7 @@ public class NhanVien extends NhanSu {
 
     @Override
     public void xuatLuongThang() {
-        PrintlnAdv(format("Lương tháng: %s", WritePerfectDub(luongThang)));
+        PrintlnAdv(format("Lương tháng: %,.0f", luongThang));
     }
 
     @Override

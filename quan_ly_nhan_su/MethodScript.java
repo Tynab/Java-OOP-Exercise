@@ -1,10 +1,9 @@
 package quan_ly_nhan_su;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 import static java.util.Collections.*;
+
 import static yan_lib.YANConstant.*;
 import static yan_lib.YANMethod.*;
 

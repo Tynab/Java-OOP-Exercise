@@ -1,14 +1,15 @@
 package quan_ly_nhan_su;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 import static java.util.Collections.*;
+
 import static java.lang.Integer.*;
 import static java.lang.String.*;
 import static java.lang.System.*;
+
 import static quan_ly_nhan_su.MethodScript.*;
+
 import static yan_lib.YANConstant.*;
 import static yan_lib.YANMethod.*;
 

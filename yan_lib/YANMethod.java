@@ -1,7 +1,6 @@
 package yan_lib;
 
 import java.text.*;
-
 import java.util.*;
 
 import static java.lang.Character.*;

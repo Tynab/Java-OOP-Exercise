@@ -1,10 +1,10 @@
 {
     "java.completion.importOrder": [
-        "",
-        "javax",
         "java",
+        "javax",
         "org",
         "com",
+        "",
         "#"
     ],
     "java.sources.organizeImports.starThreshold": 1,

@@ -2,7 +2,6 @@ package hinh_chu_nhat;
 
 import static java.lang.Double.*;
 import static java.lang.String.*;
-
 import static yan_lib.YANConstant.*;
 import static yan_lib.YANMethod.*;
 

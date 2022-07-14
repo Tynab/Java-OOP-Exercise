@@ -1,7 +1,6 @@
 package quan_ly_nhan_su;
 
 import static java.lang.String.*;
-
 import static yan_lib.YANMethod.*;
 
 public class TruongPhong extends NhanSu {

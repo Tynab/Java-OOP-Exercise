@@ -2,26 +2,26 @@ package quan_ly_nhan_su;
 
 import static java.lang.Double.*;
 import static java.lang.String.*;
-import static yan_lib.YANConstant.*;
-import static yan_lib.YANMethod.*;
+import static yan_service.YANConstant.*;
+import static yan_service.YANService.*;
 
 public class GiamDoc extends NhanSu {
     // #region Fields
     private double coPhan;
     private double thuNhap;
-    private final String _chucVu = "giám đốc";
-    private final double _luongNgay = 300;
+    private final String CHUC_VU = "giám đốc";
+    private final double LUONG_NGAY = 300;
     // #endregion
 
     // #region Methods
     @Override
     public void tinhLuong() {
-        luongThang = soNgayLamViec * _luongNgay;
+        luongThang = soNgayLamViec * LUONG_NGAY;
     }
 
     public void nhapCoPhan() {
-        PrintAdv(GREEN, "Cổ phần: ", RESET);
-        coPhan = NumLimit(0, MAX_VALUE);
+        printAdv(GREEN, "Cổ phần: ", RESET);
+        coPhan = numLimit(0, MAX_VALUE);
     }
 
     @Override
@@ -32,21 +32,21 @@ public class GiamDoc extends NhanSu {
     }
 
     public void xuatCoPhan() {
-        PrintlnAdv(format("Cổ phần: %s%%", WritePerfectDub(coPhan)));
+        printlnAdv(format("Cổ phần: %s%%", writePerfectDub(coPhan)));
     }
 
     public void xuatThuNhap() {
-        PrintlnAdv(format("Thu nhập: %,.0f", thuNhap));
+        printlnAdv(format("Thu nhập: %,.0f", thuNhap));
     }
 
     @Override
     public void xuatChucVu() {
-        PrintlnAdv(format("Chức vụ: %s", _chucVu));
+        printlnAdv(format("Chức vụ: %s", CHUC_VU));
     }
 
     @Override
     public void xuatLuongThang() {
-        PrintlnAdv(format("Lương tháng: %,.0f", luongThang));
+        printlnAdv(format("Lương tháng: %,.0f", luongThang));
     }
 
     @Override

@@ -2,8 +2,8 @@ package hinh_chu_nhat;
 
 import static java.lang.Double.*;
 import static java.lang.String.*;
-import static yan_lib.YANConstant.*;
-import static yan_lib.YANMethod.*;
+import static yan_service.YANConstant.*;
+import static yan_service.YANService.*;
 
 public class HinhChuNhat {
     // #region Fields
@@ -23,13 +23,13 @@ public class HinhChuNhat {
     }
 
     public void nhapChieuDai() {
-        PrintAdv(GREEN, "Chiều dài: ", RESET);
-        chieuDai = NumLimit(0, MAX_VALUE);
+        printAdv(GREEN, "Chiều dài: ", RESET);
+        chieuDai = numLimit(0, MAX_VALUE);
     }
 
     public void nhapChieuRong() {
-        PrintAdv(GREEN, "Chiều rộng: ", RESET);
-        chieuRong = NumLimit(0, MAX_VALUE);
+        printAdv(GREEN, "Chiều rộng: ", RESET);
+        chieuRong = numLimit(0, MAX_VALUE);
     }
 
     public void nhapHinhChuNhat() {
@@ -40,19 +40,19 @@ public class HinhChuNhat {
     }
 
     public void xuatChieuDai() {
-        PrintlnAdv(format("Chiều dài: %s", WritePerfectDub(chieuDai)));
+        printlnAdv(format("Chiều dài: %s", writePerfectDub(chieuDai)));
     }
 
     public void xuatChieuRong() {
-        PrintlnAdv(format("Chiều rộng: %s", WritePerfectDub(chieuRong)));
+        printlnAdv(format("Chiều rộng: %s", writePerfectDub(chieuRong)));
     }
 
     public void xuatChuVi() {
-        PrintlnAdv(format("Chu vi: %s", WritePerfectDub(chuVi)));
+        printlnAdv(format("Chu vi: %s", writePerfectDub(chuVi)));
     }
 
     public void xuatDienTich() {
-        PrintlnAdv(format("Diện tích: %s", WritePerfectDub(dienTich)));
+        printlnAdv(format("Diện tích: %s", writePerfectDub(dienTich)));
     }
 
     public void xuatHinhChuNhat() {

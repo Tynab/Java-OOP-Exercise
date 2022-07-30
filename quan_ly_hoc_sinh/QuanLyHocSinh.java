@@ -5,73 +5,73 @@ import java.util.*;
 import static java.lang.Integer.*;
 import static java.lang.String.*;
 import static java.lang.System.*;
-import static yan_lib.YANConstant.*;
-import static yan_lib.YANMethod.*;
+import static yan_service.YANConstant.*;
+import static yan_service.YANService.*;
 
 public class QuanLyHocSinh {
     public static void main(String[] args) {
         // tit
         out.println(BLUE_BOLD);
-        PrintlnAdv("Bài Tập Quản Lý Học Sinh");
+        printlnAdv("Bài Tập Quản Lý Học Sinh");
         // content
-        Main();
+        run();
     }
 
     // Fields
-    private static List<HocSinh> _dsHocSinh;
+    private static List<HocSinh> mDSHocSinh;
 
     // Main
-    private static void Main() {
+    private static void run() {
         // input
         out.println();
-        PrintAdv(GREEN, "Nhập vào số học sinh: ", RESET);
-        var n = NumLimit(1, MAX_VALUE);
-        _dsHocSinh = new ArrayList<HocSinh>();
+        printAdv(GREEN, "Nhập vào số học sinh: ", RESET);
+        var n = numLimit(1, MAX_VALUE);
+        mDSHocSinh = new ArrayList<HocSinh>();
         for (var i = 0; i < n; i++) {
             out.println();
-            PrintlnAdv(CYAN, format("Học sinh thứ %d", i + 1));
+            printlnAdv(CYAN, format("Học sinh thứ %d", i + 1));
             var hocSinh = new HocSinh();
             do {
                 hocSinh.nhapMaHocSinh();
-            } while (IsRegist(hocSinh.getMaHocSinh()));
+            } while (isRegist(hocSinh.getMaHocSinh()));
             hocSinh.nhapThongTinCaNhan();
             hocSinh.nhapThongTinCoBan();
             hocSinh.nhapThanhTichHocTap();
-            _dsHocSinh.add(hocSinh);
+            mDSHocSinh.add(hocSinh);
         }
         // output
         out.println(YELLOW);
-        Showntime();
+        showntime();
         // ctrl
-        CheckOut();
+        checkOut();
     }
 
     // Check regist
-    private static boolean IsRegist(String maHocSinh) {
-        var is_success = false;
-        for (var hocSinh : _dsHocSinh) {
+    private static boolean isRegist(String maHocSinh) {
+        var isSuccess = false;
+        for (var hocSinh : mDSHocSinh) {
             if (hocSinh.getMaHocSinh().equals(maHocSinh)) {
-                PrintlnAdv(RED, "Mã học sinh đã tồn tại!");
-                is_success = true;
+                printlnAdv(RED, "Mã học sinh đã tồn tại!");
+                isSuccess = true;
                 break;
             }
         }
-        return is_success;
+        return isSuccess;
     }
 
     // Showntime
-    private static void Showntime() {
-        for (var hocSinh : _dsHocSinh) {
-            PrintlnAdv(format("%s", ToUpperCaseAdv(hocSinh.getThongTinCaNhan().getHoTen())));
+    private static void showntime() {
+        for (var hocSinh : mDSHocSinh) {
+            printlnAdv(format("%s", toUpperCaseAdv(hocSinh.getThongTinCaNhan().getHoTen())));
             hocSinh.xuatThanhTichHocTap();
             out.println();
         }
     }
 
     // Check out
-    private static void CheckOut() {
-        if (Credit() == 1) {
-            Main();
+    private static void checkOut() {
+        if (credit() == 1) {
+            run();
         }
     }
 }

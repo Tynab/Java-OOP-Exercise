@@ -1,8 +1,8 @@
 package quan_ly_hoc_sinh;
 
 import static java.lang.String.*;
-import static yan_lib.YANConstant.*;
-import static yan_lib.YANMethod.*;
+import static yan_service.YANConstant.*;
+import static yan_service.YANService.*;
 
 public class TheoKy {
     // #region Fiedlds
@@ -24,7 +24,7 @@ public class TheoKy {
     private String hanhKiem;
     private double diemTrungBinhTCCM;
     private String xepLoai;
-    private final DiemTungMon[] _diemTungMons = {
+    private final DiemTungMon[] mDiemTungMons = {
             monToan,
             monLy,
             monHoa,
@@ -41,7 +41,7 @@ public class TheoKy {
             monNgheThuat,
             monTuChon
     };
-    private final String[] _monHocs = {
+    private final String[] mMonHocs = {
             "Toán",
             "Lý",
             "Hóa",
@@ -63,13 +63,13 @@ public class TheoKy {
     // #region Methods
     public void tinhDiemTrungBinhTCCM() {
         try {
-            for (int i = 0; i < _diemTungMons.length; i++) {
-                var dtbMon = _monHocs[i].equals("Toán") || _monHocs[i].equals("Văn")
-                        ? _diemTungMons[i].getDiemTrungBinhMon() * 2
-                        : _diemTungMons[i].getDiemTrungBinhMon();
+            for (int i = 0; i < mDiemTungMons.length; i++) {
+                var dtbMon = mMonHocs[i].equals("Toán") || mMonHocs[i].equals("Văn")
+                        ? mDiemTungMons[i].getDiemTrungBinhMon() * 2
+                        : mDiemTungMons[i].getDiemTrungBinhMon();
                 diemTrungBinhTCCM += dtbMon;
             }
-            diemTrungBinhTCCM /= (_diemTungMons.length + 2);
+            diemTrungBinhTCCM /= (mDiemTungMons.length + 2);
         } catch (Exception e) {
             diemTrungBinhTCCM = 0;
         }
@@ -92,13 +92,13 @@ public class TheoKy {
     }
 
     public void nhapHanhKiem(int hocKy) {
-        PrintlnAdv(RESET, format("Hạnh kiểm học kỳ %d", hocKy));
-        PrintlnAdv("1. Tốt       ");
-        PrintlnAdv("2. Khá       ");
-        PrintlnAdv("3. Trung Bình");
-        PrintlnAdv("4. Yếu       ");
-        PrintAdv("Chọn 1 trong các phương án trên: ");
-        switch (NumLimit(1, 4)) {
+        printlnAdv(RESET, format("Hạnh kiểm học kỳ %d", hocKy));
+        printlnAdv("1. Tốt       ");
+        printlnAdv("2. Khá       ");
+        printlnAdv("3. Trung Bình");
+        printlnAdv("4. Yếu       ");
+        printAdv("Chọn 1 trong các phương án trên: ");
+        switch (numLimit(1, 4)) {
             case 1: {
                 hanhKiem = "Tốt";
                 break;
@@ -119,9 +119,9 @@ public class TheoKy {
     }
 
     public void nhapDiemCacMon(int hocKy) {
-        for (int i = 0; i < _diemTungMons.length; i++) {
-            _diemTungMons[i] = new DiemTungMon();
-            _diemTungMons[i].nhapDiemTungMon(_monHocs[i], hocKy);
+        for (int i = 0; i < mDiemTungMons.length; i++) {
+            mDiemTungMons[i] = new DiemTungMon();
+            mDiemTungMons[i].nhapDiemTungMon(mMonHocs[i], hocKy);
         }
     }
 
@@ -133,22 +133,22 @@ public class TheoKy {
     }
 
     public void xuatDiemCacMon(int hocKy) {
-        for (int i = 0; i < _diemTungMons.length; i++) {
-            PrintlnAdv(format("Điểm trung bình môn %s kỳ %d: %.1f", _monHocs[i], hocKy,
-                    _diemTungMons[i].getDiemTrungBinhMon()));
+        for (int i = 0; i < mDiemTungMons.length; i++) {
+            printlnAdv(format("Điểm trung bình môn %s kỳ %d: %.1f", mMonHocs[i], hocKy,
+                    mDiemTungMons[i].getDiemTrungBinhMon()));
         }
     }
 
     public void xuatHanhKiem(int hocKy) {
-        PrintlnAdv(format("Hạnh kiểm kỳ %d: %s", hocKy, hanhKiem));
+        printlnAdv(format("Hạnh kiểm kỳ %d: %s", hocKy, hanhKiem));
     }
 
     public void xuatXepLoai(int hocKy) {
-        PrintlnAdv(format("Xếp loại học lực kỳ %d: %s", hocKy, xepLoai));
+        printlnAdv(format("Xếp loại học lực kỳ %d: %s", hocKy, xepLoai));
     }
 
     public void xuatDiemTrungBinhTCCM(int hocKy) {
-        PrintlnAdv(format("Điểm trung bình các môn kỳ %d: %.1f", hocKy, diemTrungBinhTCCM));
+        printlnAdv(format("Điểm trung bình các môn kỳ %d: %.1f", hocKy, diemTrungBinhTCCM));
     }
 
     public void xuatTheoKy(int hocKy) {

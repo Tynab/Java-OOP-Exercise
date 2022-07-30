@@ -1,33 +1,33 @@
 package quan_ly_nhan_su;
 
 import static java.lang.String.*;
-import static yan_lib.YANMethod.*;
+import static yan_service.YANService.*;
 
 public class TruongPhong extends NhanSu {
     // #region Fields
     private int soThanhVien;
-    private final String _chucVu = "trưởng phòng";
-    private final double _luongNgay = 200;
+    private final String CHUC_VU = "trưởng phòng";
+    private final double LUONG_NGAY = 200;
     // #endregion
 
     // #region Methods
     @Override
     public void tinhLuong() {
-        luongThang = soNgayLamViec * _luongNgay + 100 * soThanhVien;
+        luongThang = soNgayLamViec * LUONG_NGAY + 100 * soThanhVien;
     }
 
     public void xuatSoThanhVien() {
-        PrintlnAdv(format("Số thành viên: %d", soThanhVien));
+        printlnAdv(format("Số thành viên: %d", soThanhVien));
     }
 
     @Override
     public void xuatChucVu() {
-        PrintlnAdv(format("Chức vụ: %s", _chucVu));
+        printlnAdv(format("Chức vụ: %s", CHUC_VU));
     }
 
     @Override
     public void xuatLuongThang() {
-        PrintlnAdv(format("Lương tháng: %,.0f", luongThang));
+        printlnAdv(format("Lương tháng: %,.0f", luongThang));
     }
 
     @Override

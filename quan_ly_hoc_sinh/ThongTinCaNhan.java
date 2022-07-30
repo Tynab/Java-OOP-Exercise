@@ -4,8 +4,8 @@ import java.util.*;
 
 import static java.lang.String.*;
 import static java.lang.System.*;
-import static yan_lib.YANConstant.*;
-import static yan_lib.YANMethod.*;
+import static yan_service.YANConstant.*;
+import static yan_service.YANService.*;
 
 public class ThongTinCaNhan {
     // #region Fields
@@ -20,63 +20,63 @@ public class ThongTinCaNhan {
     private String soDienThoai;
     private String lienHeKhanCap;
     private String thuDienTu;
-    private final Scanner _scan = new Scanner(in);
+    private final Scanner mScan = new Scanner(in);
     // #endregion
 
     // #region Methods
     public void nhapHoTen() {
-        PrintAdv(GREEN, "Họ tên: ", RESET);
-        hoTen = _scan.nextLine();
+        printAdv(GREEN, "Họ tên: ", RESET);
+        hoTen = mScan.nextLine();
     }
 
     public void nhapGioiTinh() {
-        PrintAdv(GREEN, "Giới tính: ", RESET);
-        gioiTinh = _scan.nextLine();
+        printAdv(GREEN, "Giới tính: ", RESET);
+        gioiTinh = mScan.nextLine();
     }
 
     public void nhapNgaySinh() {
-        PrintAdv(GREEN, "Ngày sinh (dd/MM/yyyy): ", RESET);
-        ngaySinh = ScanDate("dd/MM/yyyy");
+        printAdv(GREEN, "Ngày sinh (dd/MM/yyyy): ", RESET);
+        ngaySinh = scanDate("dd/MM/yyyy");
     }
 
     public void nhapNoiSinh() {
-        PrintAdv(GREEN, "Nơi sinh: ", RESET);
-        noiSinh = _scan.nextLine();
+        printAdv(GREEN, "Nơi sinh: ", RESET);
+        noiSinh = mScan.nextLine();
     }
 
     public void nhapNoiOHienTai() {
-        PrintAdv(GREEN, "Nơi ở hiện tại: ", RESET);
-        noiOHienTai = _scan.nextLine();
+        printAdv(GREEN, "Nơi ở hiện tại: ", RESET);
+        noiOHienTai = mScan.nextLine();
     }
 
     public void nhapQuocTich() {
-        PrintAdv(GREEN, "Quốc tịch: ", RESET);
-        quocTich = _scan.nextLine();
+        printAdv(GREEN, "Quốc tịch: ", RESET);
+        quocTich = mScan.nextLine();
     }
 
     public void nhapDanToc() {
-        PrintAdv(GREEN, "Dân tộc: ", RESET);
-        danToc = _scan.nextLine();
+        printAdv(GREEN, "Dân tộc: ", RESET);
+        danToc = mScan.nextLine();
     }
 
     public void nhapTonGiao() {
-        PrintAdv(GREEN, "Tôn giáo: ", RESET);
-        tonGiao = _scan.nextLine();
+        printAdv(GREEN, "Tôn giáo: ", RESET);
+        tonGiao = mScan.nextLine();
     }
 
     public void nhapSoDienThoai() {
-        PrintAdv(GREEN, "Số điện thoại: ", RESET);
-        soDienThoai = _scan.nextLine();
+        printAdv(GREEN, "Số điện thoại: ", RESET);
+        soDienThoai = mScan.nextLine();
     }
 
     public void nhapLienHeKhanCap() {
-        PrintAdv(GREEN, "Liên hệ khẩn cấp: ", RESET);
-        lienHeKhanCap = _scan.nextLine();
+        printAdv(GREEN, "Liên hệ khẩn cấp: ", RESET);
+        lienHeKhanCap = mScan.nextLine();
     }
 
     public void nhapThuDienTu() {
-        PrintAdv(GREEN, "Thủ điện tử: ", RESET);
-        thuDienTu = _scan.nextLine();
+        printAdv(GREEN, "Thủ điện tử: ", RESET);
+        thuDienTu = mScan.nextLine();
     }
 
     public void nhapThongTinCaNhan() {
@@ -94,47 +94,47 @@ public class ThongTinCaNhan {
     }
 
     public void xuatHoTen() {
-        PrintlnAdv(format("Họ tên: %s", hoTen));
+        printlnAdv(format("Họ tên: %s", hoTen));
     }
 
     public void xuatGioiTinh() {
-        PrintlnAdv(format("Giới tính: %s", gioiTinh));
+        printlnAdv(format("Giới tính: %s", gioiTinh));
     }
 
     public void xuatNgaySinh() {
-        PrintlnAdv(format("Ngày sinh: %s", DateToString(ngaySinh)));
+        printlnAdv(format("Ngày sinh: %s", dateToString(ngaySinh)));
     }
 
     public void xuatNoiSinh() {
-        PrintlnAdv(format("Nơi sinh: %s", noiSinh));
+        printlnAdv(format("Nơi sinh: %s", noiSinh));
     }
 
     public void xuatNoiOHienTai() {
-        PrintlnAdv(format("Nơi ở hiện tại: %s", noiOHienTai));
+        printlnAdv(format("Nơi ở hiện tại: %s", noiOHienTai));
     }
 
     public void xuatQuocTich() {
-        PrintlnAdv(format("Quốc tịch: %s", quocTich));
+        printlnAdv(format("Quốc tịch: %s", quocTich));
     }
 
     public void xuatDanToc() {
-        PrintlnAdv(format("Dân tộc: %s", danToc));
+        printlnAdv(format("Dân tộc: %s", danToc));
     }
 
     public void xuatTonGiao() {
-        PrintlnAdv(format("Tôn giáo: %s", tonGiao));
+        printlnAdv(format("Tôn giáo: %s", tonGiao));
     }
 
     public void xuatSoDienThoai() {
-        PrintlnAdv(format("Số điện thoại: %s", soDienThoai));
+        printlnAdv(format("Số điện thoại: %s", soDienThoai));
     }
 
     public void xuatLienHeKhanCap() {
-        PrintlnAdv(format("Liên hệ khẩn cấp: %s", lienHeKhanCap));
+        printlnAdv(format("Liên hệ khẩn cấp: %s", lienHeKhanCap));
     }
 
     public void xuatThuDienTu() {
-        PrintlnAdv(format("Thủ điện tử: %s", thuDienTu));
+        printlnAdv(format("Thủ điện tử: %s", thuDienTu));
     }
 
     public void xuatThongTinCaNhan() {

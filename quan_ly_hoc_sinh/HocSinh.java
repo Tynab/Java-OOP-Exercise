@@ -4,8 +4,8 @@ import java.util.*;
 
 import static java.lang.String.*;
 import static java.lang.System.*;
-import static yan_lib.YANConstant.*;
-import static yan_lib.YANMethod.*;
+import static yan_service.YANConstant.*;
+import static yan_service.YANService.*;
 
 public class HocSinh {
     // #region Fields
@@ -13,13 +13,13 @@ public class HocSinh {
     private ThongTinCaNhan thongTinCaNhan;
     private ThongTinCoBan thongTinCoBan;
     private ThanhTichHocTap thanhTichHocTap;
-    private final Scanner _scan = new Scanner(in);
+    private final Scanner mScan = new Scanner(in);
     // #endregion
 
     // #region Methods
     public void nhapMaHocSinh() {
-        PrintAdv(GREEN, "Mã học sinh: ", RESET);
-        maHocSinh = _scan.nextLine();
+        printAdv(GREEN, "Mã học sinh: ", RESET);
+        maHocSinh = mScan.nextLine();
     }
 
     public void nhapThongTinCaNhan() {
@@ -45,7 +45,7 @@ public class HocSinh {
     }
 
     public void xuatMaHocSinh() {
-        PrintlnAdv(format("Mã học sinh: %s", maHocSinh));
+        printlnAdv(format("Mã học sinh: %s", maHocSinh));
     }
 
     public void xuatThongTinCaNhan() {

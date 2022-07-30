@@ -6,117 +6,117 @@ import static java.lang.Integer.*;
 import static java.lang.String.*;
 import static java.lang.System.*;
 import static java.util.Collections.reverse;
-import static quan_ly_nhan_su.MethodScript.*;
-import static yan_lib.YANConstant.*;
-import static yan_lib.YANMethod.*;
+import static quan_ly_nhan_su.Service.*;
+import static yan_service.YANConstant.*;
+import static yan_service.YANService.*;
 
 public class QuanLyNhanSu {
     public static void main(String[] args) {
         // tit
         out.println(BLUE_BOLD);
-        PrintlnAdv("Bài Tập Quản Lý Nhân Sự");
+        printlnAdv("Bài Tập Quản Lý Nhân Sự");
         // input
         out.println();
-        PrintAdv(GREEN, "Nhập vào số thành viên: ", RESET);
-        var n = NumLimit(1, MAX_VALUE);
-        PrintAdv(GREEN, "Tên công ty: ", RESET);
-        _tenCongTy = _scan.nextLine();
-        PrintAdv(GREEN, "Mã số thuế: ", RESET);
-        _maSoThue = _scan.nextLine();
-        PrintAdv(GREEN, "Doanh thu tháng: ", RESET);
-        _doanhThuThang = NumLimit(Double.MIN_VALUE, Double.MAX_VALUE);
-        _dsNhanSu = new ArrayList<NhanSu>();
+        printAdv(GREEN, "Nhập vào số thành viên: ", RESET);
+        var n = numLimit(1, MAX_VALUE);
+        printAdv(GREEN, "Tên công ty: ", RESET);
+        mTenCongTy = mScan.nextLine();
+        printAdv(GREEN, "Mã số thuế: ", RESET);
+        mMaSoThue = mScan.nextLine();
+        printAdv(GREEN, "Doanh thu tháng: ", RESET);
+        mDoanhThuThang = numLimit(Double.MIN_VALUE, Double.MAX_VALUE);
+        mDSNhanSu = new ArrayList<NhanSu>();
         for (var i = 0; i < n; i++) {
             out.println();
-            PrintlnAdv(CYAN, format("Thành viên thứ %d", i + 1));
-            _dsNhanSu.add(AddNewbie(_dsNhanSu));
+            printlnAdv(CYAN, format("Thành viên thứ %d", i + 1));
+            mDSNhanSu.add(addNewbie(mDSNhanSu));
         }
         // process
-        CheckTeamLead(_dsNhanSu);
-        MemberEachTeam(_dsNhanSu);
+        checkTeamLead(mDSNhanSu);
+        memberEachTeam(mDSNhanSu);
         // content
-        Main();
+        run();
     }
 
     // Fields
-    private static final Scanner _scan = new Scanner(in);
-    private static String _tenCongTy;
-    private static String _maSoThue;
-    private static double _doanhThuThang;
-    private static List<NhanSu> _dsNhanSu;
+    private static final Scanner mScan = new Scanner(in);
+    private static String mTenCongTy;
+    private static String mMaSoThue;
+    private static double mDoanhThuThang;
+    private static List<NhanSu> mDSNhanSu;
 
     // Main
-    private static void Main() {
+    private static void run() {
         // output
         out.println(CYAN);
-        PrintlnAdv(" 1. Bổ nhiệm nhân viên làm trưởng phòng");
-        PrintlnAdv(" 2. Thêm nhân sự                       ");
-        PrintlnAdv(" 3. Xóa nhân sự                        ");
-        PrintlnAdv(" 4. Xuất thông tin toàn bộ công ty     ");
-        PrintlnAdv(" 5. Tính tổng lương toàn công ty       ");
-        PrintlnAdv(" 6. Tìm thành viên có lương cao nhất   ");
-        PrintlnAdv(" 7. Tìm trưởng phòng quản lý nhiều nhất");
-        PrintlnAdv(" 8. Sắp xếp nhân sự theo tên           ");
-        PrintlnAdv(" 9. Sắp xếp nhân sự giảm dần           ");
-        PrintlnAdv("10. Tìm giám đốc có cổ phần nhiều nhất ");
-        PrintlnAdv("11. Tính tổng thu nhập của mỗi giám đốc");
-        PrintAdv("Chọn 1 trong các phương án trên: ");
+        printlnAdv(" 1. Bổ nhiệm nhân viên làm trưởng phòng");
+        printlnAdv(" 2. Thêm nhân sự                       ");
+        printlnAdv(" 3. Xóa nhân sự                        ");
+        printlnAdv(" 4. Xuất thông tin toàn bộ công ty     ");
+        printlnAdv(" 5. Tính tổng lương toàn công ty       ");
+        printlnAdv(" 6. Tìm thành viên có lương cao nhất   ");
+        printlnAdv(" 7. Tìm trưởng phòng quản lý nhiều nhất");
+        printlnAdv(" 8. Sắp xếp nhân sự theo tên           ");
+        printlnAdv(" 9. Sắp xếp nhân sự giảm dần           ");
+        printlnAdv("10. Tìm giám đốc có cổ phần nhiều nhất ");
+        printlnAdv("11. Tính tổng thu nhập của mỗi giám đốc");
+        printAdv("Chọn 1 trong các phương án trên: ");
         out.print(RESET);
-        switch (NumLimit(1, 11)) {
+        switch (numLimit(1, 11)) {
             case 1: {
-                UnitA();
+                unitA();
                 break;
             }
             case 2: {
-                UnitB();
+                unitB();
                 break;
             }
             case 3: {
-                UnitC();
+                unitC();
                 break;
             }
             case 4: {
-                UnitD();
+                unitD();
                 break;
             }
             case 5: {
-                UnitE();
+                unitE();
                 break;
             }
             case 6: {
-                UnitF();
+                unitF();
                 break;
             }
             case 7: {
-                UnitG();
+                unitG();
                 break;
             }
             case 8: {
-                UnitH();
+                unitH();
                 break;
             }
             case 9: {
-                UnitI();
+                unitI();
                 break;
             }
             case 10: {
-                UnitJ();
+                unitJ();
                 break;
             }
             case 11: {
-                UnitK();
+                unitK();
                 break;
             }
         }
         // ctrl
-        CheckOut();
+        checkOut();
     }
 
     // Unit 1
-    private static void UnitA() {
+    private static void unitA() {
         // split nhanvien
-        List<NhanVien> dsNhanVien = new ArrayList<NhanVien>();
-        for (var nhanSu : _dsNhanSu) {
+        var dsNhanVien = new ArrayList<NhanVien>();
+        for (var nhanSu : mDSNhanSu) {
             if (nhanSu instanceof NhanVien) {
                 dsNhanVien.add((NhanVien) nhanSu);
             }
@@ -125,85 +125,85 @@ public class QuanLyNhanSu {
         if (max > 0) {
             // cap
             out.println(RESET);
-            PrintlnAdv("Danh sách nhân viên");
+            printlnAdv("Danh sách nhân viên");
             for (var i = 0; i < max; i++) {
                 var nhanVien = dsNhanVien.get(i);
-                PrintlnAdv(format("%d. %s (%s)", i + 1, nhanVien.getHoTen(), nhanVien.getMaNhanVien()));
+                printlnAdv(format("%d. %s (%s)", i + 1, nhanVien.getHoTen(), nhanVien.getMaNhanVien()));
             }
-            PrintAdv("Chọn 1 trong các phương án trên: ");
+            printAdv("Chọn 1 trong các phương án trên: ");
             // main
-            var index = FindIndexByCode(_dsNhanSu, dsNhanVien.get(NumLimit(1, max) - 1).getMaNhanVien());
-            _dsNhanSu.add(index, NhanVienTransToTruongPhong(_dsNhanSu.get(index)));
-            _dsNhanSu.remove(index + 1);
+            var index = findIndexByCode(mDSNhanSu, dsNhanVien.get(numLimit(1, max) - 1).getMaNhanVien());
+            mDSNhanSu.add(index, nhanVienTransToTruongPhong(mDSNhanSu.get(index)));
+            mDSNhanSu.remove(index + 1);
             // finish
-            MemberEachTeam(_dsNhanSu);
-            UnitD();
+            memberEachTeam(mDSNhanSu);
+            unitD();
         } else {
-            CheckIn();
-            PrintlnAdv("Công ty không có nhân viên nào!");
+            checkIn();
+            printlnAdv("Công ty không có nhân viên nào!");
             out.println();
         }
     }
 
     // Unit 2
-    private static void UnitB() {
+    private static void unitB() {
         // cap
         out.println(CYAN);
-        PrintlnAdv("Thêm thành viên mới");
+        printlnAdv("Thêm thành viên mới");
         // main
-        _dsNhanSu.add(AddNewbie(_dsNhanSu));
+        mDSNhanSu.add(addNewbie(mDSNhanSu));
         // finish
-        MemberEachTeam(_dsNhanSu);
-        UnitD();
+        memberEachTeam(mDSNhanSu);
+        unitD();
     }
 
     // Unit 3
-    private static void UnitC() {
+    private static void unitC() {
         // cap
-        PrintlnAdv(RESET, "Danh sách nhân viên");
-        var max = _dsNhanSu.size();
+        printlnAdv(RESET, "Danh sách nhân viên");
+        var max = mDSNhanSu.size();
         for (var i = 0; i < max; i++) {
-            var nhanSu = _dsNhanSu.get(i);
-            PrintlnAdv(format("%d. %s (%s)", i + 1, nhanSu.getHoTen(), nhanSu.getMaNhanVien()));
+            var nhanSu = mDSNhanSu.get(i);
+            printlnAdv(format("%d. %s (%s)", i + 1, nhanSu.getHoTen(), nhanSu.getMaNhanVien()));
         }
-        PrintAdv("Chọn 1 trong các phương án trên: ");
+        printAdv("Chọn 1 trong các phương án trên: ");
         // main
-        var index = FindIndexByCode(_dsNhanSu, _dsNhanSu.get(NumLimit(1, max) - 1).getMaNhanVien());
-        _dsNhanSu.remove(index);
+        var index = findIndexByCode(mDSNhanSu, mDSNhanSu.get(numLimit(1, max) - 1).getMaNhanVien());
+        mDSNhanSu.remove(index);
         // finish
-        CheckTeamLead(_dsNhanSu);
-        MemberEachTeam(_dsNhanSu);
-        UnitD();
+        checkTeamLead(mDSNhanSu);
+        memberEachTeam(mDSNhanSu);
+        unitD();
     }
 
     // Unit 4
-    private static void UnitD() {
+    private static void unitD() {
         // cap
-        CheckIn();
+        checkIn();
         // shown
-        for (var nhanSu : _dsNhanSu) {
+        for (var nhanSu : mDSNhanSu) {
             nhanSu.xuatNhanSu();
             out.println();
         }
     }
 
     // Unit 5
-    private static void UnitE() {
+    private static void unitE() {
         // intro
-        UnitD();
+        unitD();
         // finish
-        PrintlnAdv(format("Tổng lương toàn công ty: %,.0f", SumSalary(_dsNhanSu)));
+        printlnAdv(format("Tổng lương toàn công ty: %,.0f", sumSalary(mDSNhanSu)));
         out.println();
     }
 
     // Unit 6
-    private static void UnitF() {
+    private static void unitF() {
         // cap
-        CheckIn();
-        PrintlnAdv("Thành viên lương cao nhất");
+        checkIn();
+        printlnAdv("Thành viên lương cao nhất");
         out.println();
         // main
-        var dsTopSalary = TopSalary(_dsNhanSu);
+        var dsTopSalary = topSalary(mDSNhanSu);
         // shown
         for (var topNhanSu : dsTopSalary) {
             topNhanSu.xuatHoTen();
@@ -214,13 +214,13 @@ public class QuanLyNhanSu {
     }
 
     // Unit 7
-    private static void UnitG() {
+    private static void unitG() {
         // cap
-        CheckIn();
-        PrintlnAdv("Trưởng phòng quản lý nhiều thành viên nhât");
+        checkIn();
+        printlnAdv("Trưởng phòng quản lý nhiều thành viên nhât");
         out.println();
         // main
-        var dsTopTeam = TopTeam(_dsNhanSu);
+        var dsTopTeam = topTeam(mDSNhanSu);
         // shown
         for (var topTruongPhong : dsTopTeam) {
             topTruongPhong.xuatHoTen();
@@ -230,14 +230,14 @@ public class QuanLyNhanSu {
     }
 
     // Unit 8
-    private static void UnitH() {
+    private static void unitH() {
         // cap
-        CheckIn();
-        PrintlnAdv("Sắp xếp nhân sự theo tên");
+        checkIn();
+        printlnAdv("Sắp xếp nhân sự theo tên");
         out.println();
         // main
-        var dsNhanSu = new ArrayList<NhanSu>(_dsNhanSu);
-        SortByName(dsNhanSu);
+        var dsNhanSu = new ArrayList<NhanSu>(mDSNhanSu);
+        sortByName(dsNhanSu);
         // shown
         for (var nhanSu : dsNhanSu) {
             nhanSu.xuatNhanSu();
@@ -246,14 +246,14 @@ public class QuanLyNhanSu {
     }
 
     // Unit 9
-    private static void UnitI() {
+    private static void unitI() {
         // cap
-        CheckIn();
-        PrintlnAdv("Sắp xếp nhân sự giảm dần");
+        checkIn();
+        printlnAdv("Sắp xếp nhân sự giảm dần");
         out.println();
         // main
-        var dsNhanSu = new ArrayList<NhanSu>(_dsNhanSu);
-        SortByCode(dsNhanSu);
+        var dsNhanSu = new ArrayList<NhanSu>(mDSNhanSu);
+        sortByCode(dsNhanSu);
         reverse(dsNhanSu);
         // shown
         for (var nhanSu : dsNhanSu) {
@@ -263,13 +263,13 @@ public class QuanLyNhanSu {
     }
 
     // Unit 10
-    private static void UnitJ() {
+    private static void unitJ() {
         // cap
-        CheckIn();
-        PrintlnAdv("Giám đốc có nhiều cổ phần nhất");
+        checkIn();
+        printlnAdv("Giám đốc có nhiều cổ phần nhất");
         out.println();
         // main
-        var dsTopShare = TopShare(_dsNhanSu);
+        var dsTopShare = topShare(mDSNhanSu);
         // shown
         for (var topGiamDoc : dsTopShare) {
             topGiamDoc.xuatHoTen();
@@ -279,13 +279,13 @@ public class QuanLyNhanSu {
     }
 
     // Unit 11
-    private static void UnitK() {
+    private static void unitK() {
         // cap
-        CheckIn();
-        PrintlnAdv("Thu nhập giám đốc");
+        checkIn();
+        printlnAdv("Thu nhập giám đốc");
         out.println();
         // main
-        var dsGiamDoc = AllInGiamDoc(_dsNhanSu, _doanhThuThang);
+        var dsGiamDoc = allInGiamDoc(mDSNhanSu, mDoanhThuThang);
         // shown
         for (var topGiamDoc : dsGiamDoc) {
             topGiamDoc.xuatHoTen();
@@ -295,18 +295,18 @@ public class QuanLyNhanSu {
     }
 
     // Check in
-    private static void CheckIn() {
+    private static void checkIn() {
         out.println(YELLOW);
-        PrintlnAdv(format("Công ty %s", ToTitleCaseAdv(_tenCongTy)));
-        PrintlnAdv(format("MST %s", _maSoThue));
-        PrintlnAdv(format("Doanh Thu Tháng %s", WritePerfectDub(_doanhThuThang)));
+        printlnAdv(format("Công ty %s", toTitleCaseAdv(mTenCongTy)));
+        printlnAdv(format("MST %s", mMaSoThue));
+        printlnAdv(format("Doanh Thu Tháng %s", writePerfectDub(mDoanhThuThang)));
         out.println();
     }
 
     // Check out
-    private static void CheckOut() {
-        if (Credit() == 1) {
-            Main();
+    private static void checkOut() {
+        if (credit() == 1) {
+            run();
         }
     }
 }

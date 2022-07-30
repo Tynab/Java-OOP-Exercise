@@ -5,55 +5,55 @@ import java.util.*;
 import static java.lang.Integer.*;
 import static java.lang.String.*;
 import static java.lang.System.*;
-import static yan_lib.YANConstant.*;
-import static yan_lib.YANMethod.*;
+import static yan_service.YANConstant.*;
+import static yan_service.YANService.*;
 
 public class TinhHinhChuNhat {
     public static void main(String[] args) {
         // tit
         out.println(BLUE_BOLD);
-        PrintlnAdv("Bài Tính Hình Chữ Nhật");
+        printlnAdv("Bài Tính Hình Chữ Nhật");
         // content
-        Main();
+        run();
     }
 
     // Fields
-    private static List<HinhChuNhat> _dsHinhChuNhat;
+    private static List<HinhChuNhat> mDSHinhChuNhat;
 
     // Main
-    private static void Main() {
+    private static void run() {
         // input
         out.println();
-        PrintAdv(GREEN, "Nhập vào số hình chữ nhật: ", RESET);
-        var n = NumLimit(1, MAX_VALUE);
-        _dsHinhChuNhat = new ArrayList<HinhChuNhat>();
+        printAdv(GREEN, "Nhập vào số hình chữ nhật: ", RESET);
+        var n = numLimit(1, MAX_VALUE);
+        mDSHinhChuNhat = new ArrayList<HinhChuNhat>();
         for (var i = 0; i < n; i++) {
             out.println();
-            PrintlnAdv(CYAN, format("Hình chữ nhật thứ %d", i + 1));
+            printlnAdv(CYAN, format("Hình chữ nhật thứ %d", i + 1));
             var hinhChuNhat = new HinhChuNhat();
             hinhChuNhat.nhapHinhChuNhat();
-            _dsHinhChuNhat.add(hinhChuNhat);
+            mDSHinhChuNhat.add(hinhChuNhat);
         }
         // output
         out.println(YELLOW);
-        Showntime();
+        showntime();
         // ctrl
-        CheckOut();
+        checkOut();
     }
 
     // Showntime
-    private static void Showntime() {
-        for (var i = 0; i < _dsHinhChuNhat.size(); i++) {
-            PrintlnAdv(format("Hình chữ nhật thứ %d", i + 1));
-            _dsHinhChuNhat.get(i).xuatHinhChuNhat();
+    private static void showntime() {
+        for (var i = 0; i < mDSHinhChuNhat.size(); i++) {
+            printlnAdv(format("Hình chữ nhật thứ %d", i + 1));
+            mDSHinhChuNhat.get(i).xuatHinhChuNhat();
             out.println();
         }
     }
 
     // Check out
-    private static void CheckOut() {
-        if (Credit() == 1) {
-            Main();
+    private static void checkOut() {
+        if (credit() == 1) {
+            run();
         }
     }
 }

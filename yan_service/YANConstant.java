@@ -1,4 +1,4 @@
-package yan_lib;
+package yan_service;
 
 public class YANConstant {
     // Constant

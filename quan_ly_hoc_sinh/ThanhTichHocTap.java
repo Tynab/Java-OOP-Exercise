@@ -1,7 +1,7 @@
 package quan_ly_hoc_sinh;
 
 import static java.lang.String.*;
-import static yan_lib.YANMethod.*;
+import static yan_service.YANService.*;
 
 public class ThanhTichHocTap {
     // #region Fields
@@ -175,15 +175,15 @@ public class ThanhTichHocTap {
     }
 
     public void xuatHanhKiemCN() {
-        PrintlnAdv(format("Hạnh kiểm cả năm: %s", hanhKiemCN));
+        printlnAdv(format("Hạnh kiểm cả năm: %s", hanhKiemCN));
     }
 
     public void xuatDiemTrungBinhCN() {
-        PrintlnAdv(format("Điểm trung bình cả năm: %.1f", diemTrungBinhCN));
+        printlnAdv(format("Điểm trung bình cả năm: %.1f", diemTrungBinhCN));
     }
 
     public void xuatXepLoaiHocLucCN() {
-        PrintlnAdv(format("Xếp loại học lực cả năm: %s", xepLoaiCN));
+        printlnAdv(format("Xếp loại học lực cả năm: %s", xepLoaiCN));
     }
 
     public void xuatThanhTichHocTap() {

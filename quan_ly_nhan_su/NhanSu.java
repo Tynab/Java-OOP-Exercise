@@ -4,8 +4,8 @@ import java.util.*;
 
 import static java.lang.String.*;
 import static java.lang.System.*;
-import static yan_lib.YANConstant.*;
-import static yan_lib.YANMethod.*;
+import static yan_service.YANConstant.*;
+import static yan_service.YANService.*;
 
 public class NhanSu {
     // #region Fields
@@ -14,8 +14,8 @@ public class NhanSu {
     private String soDienThoai;
     protected double soNgayLamViec;
     protected double luongThang;
-    private final Scanner _scan = new Scanner(in);
-    private final String _chucVu = "nhân viên";
+    private final String CHUC_VU = "nhân viên";
+    private final Scanner mScan = new Scanner(in);
     // #endregion
 
     // #region Methods
@@ -24,23 +24,23 @@ public class NhanSu {
     }
 
     public void nhapMaNhanVien() {
-        PrintAdv(GREEN, "Mã nhân viên: ", RESET);
-        maNhanVien = _scan.nextLine();
+        printAdv(GREEN, "Mã nhân viên: ", RESET);
+        maNhanVien = mScan.nextLine();
     }
 
     public void nhapHoTen() {
-        PrintAdv(GREEN, "Họ tên: ", RESET);
-        hoTen = _scan.nextLine();
+        printAdv(GREEN, "Họ tên: ", RESET);
+        hoTen = mScan.nextLine();
     }
 
     public void nhapSoDienThoai() {
-        PrintAdv(GREEN, "Số điện thoại: ", RESET);
-        soDienThoai = _scan.nextLine();
+        printAdv(GREEN, "Số điện thoại: ", RESET);
+        soDienThoai = mScan.nextLine();
     }
 
     public void nhapSoNgayLamViec() {
-        PrintAdv(GREEN, "Số ngày làm việc: ", RESET);
-        soNgayLamViec = NumLimit(0d, 31d);
+        printAdv(GREEN, "Số ngày làm việc: ", RESET);
+        soNgayLamViec = numLimit(0d, 31d);
     }
 
     public void nhapNhanSu() {
@@ -50,27 +50,27 @@ public class NhanSu {
     }
 
     public void xuatMaNhanVien() {
-        PrintlnAdv(format("Mã nhân viên: %s", maNhanVien));
+        printlnAdv(format("Mã nhân viên: %s", maNhanVien));
     }
 
     public void xuatHoTen() {
-        PrintlnAdv(format("Họ tên: %s", hoTen));
+        printlnAdv(format("Họ tên: %s", hoTen));
     }
 
     public void xuatSoDienThoai() {
-        PrintlnAdv(format("Số điện thoại: %s", soDienThoai));
+        printlnAdv(format("Số điện thoại: %s", soDienThoai));
     }
 
     public void xuatChucVu() {
-        PrintlnAdv(format("Chức vụ: %s", _chucVu));
+        printlnAdv(format("Chức vụ: %s", CHUC_VU));
     }
 
     public void xuatSoNgayLamViec() {
-        PrintlnAdv(format("Số ngày làm việc: %s", WritePerfectDub(soNgayLamViec)));
+        printlnAdv(format("Số ngày làm việc: %s", writePerfectDub(soNgayLamViec)));
     }
 
     public void xuatLuongThang() {
-        PrintlnAdv(format("Lương tháng: %,.0f", luongThang));
+        printlnAdv(format("Lương tháng: %,.0f", luongThang));
     }
 
     public void xuatNhanSu() {

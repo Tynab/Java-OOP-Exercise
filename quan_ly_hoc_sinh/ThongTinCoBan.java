@@ -4,8 +4,8 @@ import java.util.*;
 
 import static java.lang.String.*;
 import static java.lang.System.*;
-import static yan_lib.YANConstant.*;
-import static yan_lib.YANMethod.*;
+import static yan_service.YANConstant.*;
+import static yan_service.YANService.*;
 
 public class ThongTinCoBan {
     // #region Fields
@@ -15,33 +15,33 @@ public class ThongTinCoBan {
     private String tenLop;
     private String thamGiaHoatDong;
     private BaoHiemYTe baoHiemYTe;
-    private final Scanner _scan = new Scanner(in);
+    private final Scanner mScan = new Scanner(in);
     // #endregion
 
     // #region Methods
     public void nhapTenTruong() {
-        PrintAdv(GREEN, "Tên trường: ", RESET);
-        tenTruong = _scan.nextLine();
+        printAdv(GREEN, "Tên trường: ", RESET);
+        tenTruong = mScan.nextLine();
     }
 
     public void nhapTenBan() {
-        PrintAdv(GREEN, "Tên ban: ", RESET);
-        tenBan = _scan.nextLine();
+        printAdv(GREEN, "Tên ban: ", RESET);
+        tenBan = mScan.nextLine();
     }
 
     public void nhapTenKhoi() {
-        PrintAdv(GREEN, "Tên khối: ", RESET);
-        tenKhoi = _scan.nextLine();
+        printAdv(GREEN, "Tên khối: ", RESET);
+        tenKhoi = mScan.nextLine();
     }
 
     public void nhapTenLop() {
-        PrintAdv(GREEN, "Tên lớp: ", RESET);
-        tenLop = _scan.nextLine();
+        printAdv(GREEN, "Tên lớp: ", RESET);
+        tenLop = mScan.nextLine();
     }
 
     public void nhapThamGiaHoatDong() {
-        PrintAdv(GREEN, "Tham gia hoạt động: ", RESET);
-        thamGiaHoatDong = _scan.nextLine();
+        printAdv(GREEN, "Tham gia hoạt động: ", RESET);
+        thamGiaHoatDong = mScan.nextLine();
     }
 
     public void nhapBaoHiemYTe() {
@@ -59,23 +59,23 @@ public class ThongTinCoBan {
     }
 
     public void xuatTenTruong() {
-        PrintlnAdv(format("Tên trường: %s", tenTruong));
+        printlnAdv(format("Tên trường: %s", tenTruong));
     }
 
     public void xuatTenBan() {
-        PrintlnAdv(format("Tên ban: %s", tenBan));
+        printlnAdv(format("Tên ban: %s", tenBan));
     }
 
     public void xuatTenKhoi() {
-        PrintlnAdv(format("Tên khối: %s", tenKhoi));
+        printlnAdv(format("Tên khối: %s", tenKhoi));
     }
 
     public void xuatTenLop() {
-        PrintlnAdv(format("Tên lớp: %s", tenLop));
+        printlnAdv(format("Tên lớp: %s", tenLop));
     }
 
     public void xuatThamGiaHoatDong() {
-        PrintlnAdv(format("Tham gia hoạt động: %s", thamGiaHoatDong));
+        printlnAdv(format("Tham gia hoạt động: %s", thamGiaHoatDong));
     }
 
     public void xuatBaoHiemYTe() {
